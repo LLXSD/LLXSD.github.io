@@ -2,7 +2,7 @@
   <tr>
     <td width="75%">
       <h1>Lixin Liu</h1>
-      <p><b>Phd student</b></p>
+      <p><b>PhD student</b></p>
       <p><b>Institute of Network Science and Cyberspace, Tsinghua University.</b></p>
       <p><b>Email：llx22@mails.tsinghua.edu.cn, liulixinsd@gmail.com</b></p>
     </td>
