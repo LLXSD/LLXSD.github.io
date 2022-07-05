@@ -28,9 +28,22 @@ Integrated Space and Terrestrial Network, Geographic Routing, Wireless and Mobil
 2. Yuanjie Li, Hewu Li, Wei Liu, **Lixin Liu**, Yimei Chen, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai, “A Case for Stateless Mobile Core Network Functions in Space”, in ACM SIGCOMM 2022.
 
 ### 2021
-1. Yuanjie Li, Hewu Li, Lixin Liu, Wei Liu, Jiayi Liu, Jianping Wu, Qian Wu, Jun Liu, and Zeqi Lai. “Internet in Space” for Terrestrial Users via Cyber-Physical Convergence. In ACM HotNets, 2021.
+1. Yuanjie Li, Hewu Li, **Lixin Liu**, Wei Liu, Jiayi Liu, Jianping Wu, Qian Wu, Jun Liu, and Zeqi Lai. “Internet in Space” for Terrestrial Users via Cyber-Physical Convergence. In ACM HotNets, 2021.
+
 ### 2020
+1. 李贺武, **刘李鑫**, 刘君, 吴茜. 基于位置的天地一体化网络路由寻址机制研究[J]. 通信学报, 2020, 41(8): 120.
 
 ## Patents
-1. 李贺武,刘李鑫,刘君,吴茜,李基豪. 基于空间位置信息进行网络层寻址的路由方法和路由设备:中国, 2019111911701.
-2. 李贺武,刘李鑫,刘君,赖泽祺,吴茜,万俊杰,李观文. 卫星网络路由方法、装置、设备、系统及可读存储介质, KHP211123053.8.
+1. 李贺武, **刘李鑫**, 刘君, 吴茜, 李基豪. 基于空间位置信息进行网络层寻址的路由方法和路由设备:中国，2019111911701.
+2. 李贺武, **刘李鑫**, 刘君, 赖泽祺, 吴茜, 万俊杰, 李观文. 卫星网络路由方法、装置、设备、系统及可读存储介质, KHP211123053.8.
+3. 李贺武, 陈雅正, 刘君, **刘李鑫**. 一种用于卫星互联网的IP地址分配与查重方法及系统:中国，2021105725568.
+4. 李元杰, 李贺武, 刘嘉镱, 刘威, **刘李鑫**, 等. 一种支持递归可扩展的星地协同均匀组网架构:中国，2021112357359.
+
+## Awards
+1. 2022.06 清华大学网络科学与网络空间研究院优秀毕业生
+2. 2020.12 清华大学综合优秀二等奖学金
+
+## Education
+- 2022.9–now, PhD, Tsinghua University, Cyberspace Security, Advisor: Prof. Hewu Li and Prof. Yuanjie Li.
+- 2019.9–2022.6, Master, Tsinghua University, Cyberspace Security, Advisor: Prof. Hewu Li.
+- 2015.9–2019.6, Bachelor, Shandong University, Software Engineering.
