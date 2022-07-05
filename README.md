@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## LixinLiu's Home Page
 
 You can use the [editor on GitHub](https://github.com/LLXSD/LLXSD.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
