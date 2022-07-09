@@ -24,8 +24,9 @@ Integrated Space and Terrestrial Network, Geographic Routing, Wireless and Mobil
 
 ## Publications
 ### 2022
-1. **Lixin Liu**, Hewu Li, Yuanjie Li, Zeqi Lai, Yangtao Deng, Yimei Chen, Wei Liu, Qian Wu, “Geographic Low-Earth-Orbit Networking without QoS Bottlenecks from Infrastructure Mobility”, in IEEE IWQoS 2022.
-2. Yuanjie Li, Hewu Li, Wei Liu, **Lixin Liu**, Yimei Chen, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai, “A Case for Stateless Mobile Core Network Functions in Space”, in ACM SIGCOMM 2022.
+1. **Lixin Liu**, Hewu Li, Yuanjie Li, Zeqi Lai, Yangtao Deng, Yimei Chen, Wei Liu, Qian Wu, "Geographic Low-Earth-Orbit Networking without QoS Bottlenecks from Infrastructure Mobility", in IEEE IWQoS 2022.
+2. Yuanjie Li, Hewu Li, Wei Liu, **Lixin Liu**, Yimei Chen, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai, "A Case for Stateless Mobile Core Network Functions in Space", in ACM SIGCOMM 2022.
+3. Zeqi Lai, Hewu Li, Yangtao Deng, Qian Wu, Jun Liu, Yuanjie Li, Jihao Li, **Lixin Liu**, Weisen Liu, Jianping Wu, "StarryNet: Empowering Researchers to Evaluate Futuristic Integrated Space and Terrestrial Networks", in USENIX NSDI 2023.
 
 ### 2021
 1. Yuanjie Li, Hewu Li, **Lixin Liu**, Wei Liu, Jiayi Liu, Jianping Wu, Qian Wu, Jun Liu, and Zeqi Lai. “Internet in Space” for Terrestrial Users via Cyber-Physical Convergence. In ACM HotNets, 2021.
