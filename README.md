@@ -23,6 +23,9 @@ Her works are published at conferences or journals such as ACM SIGCOMM, IEEE IWQ
 Integrated Space and Terrestrial Network, Geographic Routing, Wireless and Mobile Network.
 
 ## Publications
+### 2023
+<!--1. Yuanjie Li, Hewu Li, Wei Liu, **Lixin Liu**, Wei Zhao, Yimei Chen, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai, Han Qiu, "A Networking Perspective on Starlink's Self-Driving LEO Mega-Constellation", in MobiCom 2023.-->
+
 ### 2022
 1. **Lixin Liu**, Hewu Li, Yuanjie Li, Zeqi Lai, Yangtao Deng, Yimei Chen, Wei Liu, Qian Wu, "Geographic Low-Earth-Orbit Networking without QoS Bottlenecks from Infrastructure Mobility", in IEEE IWQoS 2022.
 2. Yuanjie Li, Hewu Li, Wei Liu, **Lixin Liu**, Yimei Chen, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai, "A Case for Stateless Mobile Core Network Functions in Space", in ACM SIGCOMM 2022.
