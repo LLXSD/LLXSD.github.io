@@ -24,6 +24,7 @@ Integrated Space and Terrestrial Network, Geographic Routing, Wireless and Mobil
 
 ## Publications
 ### 2023
+1. Yuanjie Li, Hewu Li, Wei Liu, **Lixin Liu**, Wei Zhao, Yimei Chen, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai, Han Qiu, "A Networking Perspective on Starlink's Self-Driving LEO Mega-Constellation", in MobiCom 2023.
 <!--1. Yuanjie Li, Hewu Li, Wei Liu, **Lixin Liu**, Wei Zhao, Yimei Chen, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai, Han Qiu, "A Networking Perspective on Starlink's Self-Driving LEO Mega-Constellation", in MobiCom 2023.-->
 
 ### 2022
