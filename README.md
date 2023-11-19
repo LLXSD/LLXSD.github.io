@@ -45,8 +45,8 @@ Integrated Space and Terrestrial Network, Geographic Routing, Wireless and Mobil
 4. 李元杰, 李贺武, 刘嘉镱, 刘威, **刘李鑫**, 等. 一种支持递归可扩展的星地协同均匀组网架构:中国，2021112357359.
 
 ## Awards
-1. 2022.06 清华大学网络科学与网络空间研究院优秀毕业生
-2. 2020.12 清华大学综合优秀二等奖学金
+1. Outstanding graduate of the Institute for Network Sciences and Cyberspace of Tsinghua University, 2022.
+2. The Second Price Scholarship of Tsinghua University, 2020, 2023.
 
 ## Education
 - 2022.9–now, PhD, Tsinghua University, Cyberspace Security, Advisor: Prof. Hewu Li and Prof. Yuanjie Li.
