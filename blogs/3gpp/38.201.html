@@ -1,21 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-    <title>3GPP TS38.201 NR； Physical layer； General description （Release 18）</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>38.201</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../blog_css/style.css">
 </head>
+
 <body>
+    <header>
+        <nav class="navbar navbar-default" id="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <h1 class="logo">
+                        <a href="#">38.201</a>
+                    </h1> -->
+                </div>
+                <div class="collapse navbar-collapse" id="header-navbar">
+                    <form class="navbar-form visible-xs" action="#" method="POST">
+                        <div class="input-group">
+                            <input type="text" name="keyword" class="form-control" placeholder="请输入关键字" maxlength="20" autocomplete="off">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default btn-search">搜索</button>
+                            </span>
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html">首页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content-wrap">
+            <div class="content">
+                <header class="article-header">
+                    <h2 class="article-title"><a href="#">TS 38.201 NR; Physical layer; General description (Release 18)</a></h2>
+                    <div class="article-meta ">
+                        <!-- <span class="item category"><a href="# ">产品</a></span> -->
+                        <span class="item time "><a href="# ">⏰ 2023-11-17</a></span>
+                        <!-- <span class="item tags">标签：<a href="#">架构</a><a href="#">架构</a><a href="#">架构</a></span> -->
+                        <!-- <span class="item views"><i class="glyphicon glyphicon-eye-open"></i> 88</span> -->
+                    </div>
+                </header>
+
+                <article class="article-content">
+                    <p> TS38.201是介绍性的标准，简单介绍了RAN的信道组成和PHY层承担的功能，下图是PHY层相关标准的关系。</p>
+
+                
+                    <img src="../../images/blogs/3gpp/38.201-1.png" alt="PHY层标准" width="600" height="450">
+
+<h3>结构</h3>
+<p> 如图所示，不同层/子层之间的圆圈表示服务接入点(SAP)，其中L2包括MAC，RLC，PDCP和SDAP。PHY为MAC提供传输信道（信息如何通过无线电接口传输），MAC为RLC提供逻辑信道（所传输信息的类型），RLC为PDCP提供RLC信道，PDCP为上层提供无线承载，SDAP提供QoS Flow级别服务。<p> 
+<img src="../../images/blogs/3gpp/38.201-2.png" alt="不同层关系" width="850" height="400">
 
 
-TS38.201是介绍性的标准，简单介绍了RAN的信道组成和PHY层承担的功能，下图是PHY层相关标准的关系。
-<!-- 图片嵌入 -->
-<img src="https://img-blog.csdnimg.cn/c78fb77fd4994faaaa74227a531029fb.png" alt="PHY层标准">
-
-<h1>结构</h1>
-如图所示，不同层/子层之间的圆圈表示服务接入点(SAP)，其中L2包括MAC，RLC，PDCP和SDAP。PHY为MAC提供传输信道（信息如何通过无线电接口传输），MAC为RLC提供逻辑信道（所传输信息的类型），RLC为PDCP提供RLC信道，PDCP为上层提供无线承载，SDAP提供QoS Flow级别服务。
-<img src="https://img-blog.csdnimg.cn/67952109879241b79752825fb1ba0710.png" alt="不同层关系">
-
-
-<h1>信道类型</h1>
+<h3>信道类型</h3>
 The physical channels defined in the downlink are:
 <ul>
     <li>the Physical Downlink Shared Channel (PDSCH),</li>
@@ -40,7 +91,7 @@ The physical channels defined in the sidelink are:
 
 In addition, signals are defined as **reference signals**, **primary** and **secondary synchronization signals**.
 
-<h1>调制方式</h1>
+<h3>调制方式</h3>
 The modulation schemes supported are
 <ul>
     <li>in the downlink, QPSK, 16QAM, 64QAM, 256QAM, and 1024QAM,</li>
@@ -48,7 +99,7 @@ The modulation schemes supported are
 </ul>
 
 
-<h1>PHY层支持的过程</h1>
+<h3>PHY层支持的过程</h3>
 <ul>
     <li>Cell search</li>
     <li>Power control</li>
@@ -61,13 +112,13 @@ The modulation schemes supported are
 </ul>
 
 
-<h1>物理层测量</h1>
+<h3>物理层测量</h3>
 Radio characteristics are measured by the UE and the network and reported to higher layers. 
-These include, e.g.measurements for **intra- and inter-frequency handover**, **inter RAT handover**, **timing measurements**, and measurementsfor **RRM**.
+These include, e.g.measurements for <b>intra- and inter-frequency handover</b>, <b>inter RAT handover</b>, <b>timing measurements</b>, and measurements for <b>RRM</b>.
 
 
-<h1>其他标准</h1>
-<h2>TS 38.202: Physical layer services provided by the physical layer</h2>
+<h3>其他标准</h3>
+<h4>TS 38.202: Physical layer services provided by the physical layer</h4>
 <ul>
     <li>Services and functions of the physical layer;</li>
     <li>Model of physical layer of the UE;</li>
@@ -75,7 +126,7 @@ These include, e.g.measurements for **intra- and inter-frequency handover**, **i
     <li>Measurements provided by the physical layer.</li>
 </ul>
 
-<h2>TS 38.211: Physical channels and modulation</h2>
+<h4>TS 38.211: Physical channels and modulation</h4>
 <ul>
     <li>Definition of the uplink, downlink and sidelink physical channels;</li>
     <li>Frame structure and physical resources;</li>
@@ -89,7 +140,7 @@ These include, e.g.measurements for **intra- and inter-frequency handover**, **i
     <li>Primary and secondary synchronization signals.</li>
 </ul>
 
-<h2>TS 38.212: Multiplexing and channel coding</h2>
+<h4>TS 38.212: Multiplexing and channel coding</h4>
 <ul>
     <li>Channel coding schemes;</li>
     <li>Rate matching;</li>
@@ -98,7 +149,7 @@ These include, e.g.measurements for **intra- and inter-frequency handover**, **i
     <li>Sidelink transport channels and control information.</li>
 </ul>
 
-<h2>TS 38.213: Physical layer procedures for control</h2>
+<h4>TS 38.213: Physical layer procedures for control</h4>
 <ul>
     <li>Synchronization procedures;</li>
     <li>Uplink power control;</li>
@@ -107,7 +158,7 @@ These include, e.g.measurements for **intra- and inter-frequency handover**, **i
     <li>UE procedure for receiving control information.</li>
 </ul>
 
-<h2>TS 38.214: Physical layer procedures for data</h2>
+<h4>TS 38.214: Physical layer procedures for data</h4>
 <ul>
     <li>Power control;</li>
     <li>Physical downlink shared channel related procedures;</li>
@@ -115,18 +166,27 @@ These include, e.g.measurements for **intra- and inter-frequency handover**, **i
     <li>Physical sidelink shared channel related procedure.</li>
 </ul>
 
-<h2>TS 38.215: Physical layer measurements</h2>
+<h4>TS 38.215: Physical layer measurements</h4>
 <ul>
     <li>Control of UE/NG-RAN measurements;</li>
     <li>Measurement capabilities for NR.</li>
 </ul>
 
-<h2>TS 37.213: Physical layer procedures for shared spectrum channel access</h2>
+<h4>TS 37.213: Physical layer procedures for shared spectrum channel access</h4>
 <ul>
     <li>Downlink channel access procedures;</li>
     <li>Uplink channel access procedures;</li>
     <li>Sidelink channel access procedures.</li>
 </ul>
 
+                    
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
+    <script src="../../blog_js/bootstrap.min.js "></script>
 </body>
+
 </html>
