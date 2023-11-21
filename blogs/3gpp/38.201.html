@@ -61,12 +61,12 @@
                 
                     <img src="../../images/blogs/3gpp/38.201-1.png" alt="PHY层标准" width="600" height="450">
 
-<h3>结构</h3>
+<h3 id="jiegou">结构</h3>
 <p> 如图所示，不同层/子层之间的圆圈表示服务接入点(SAP)，其中L2包括MAC，RLC，PDCP和SDAP。PHY为MAC提供传输信道（信息如何通过无线电接口传输），MAC为RLC提供逻辑信道（所传输信息的类型），RLC为PDCP提供RLC信道，PDCP为上层提供无线承载，SDAP提供QoS Flow级别服务。<p> 
 <img src="../../images/blogs/3gpp/38.201-2.png" alt="不同层关系" width="850" height="400">
 
 
-<h3>信道类型</h3>
+<h3 id="channel-type">信道类型</h3>
 The physical channels defined in the downlink are:
 <ul>
     <li>the Physical Downlink Shared Channel (PDSCH),</li>
@@ -91,7 +91,7 @@ The physical channels defined in the sidelink are:
 
 In addition, signals are defined as **reference signals**, **primary** and **secondary synchronization signals**.
 
-<h3>调制方式</h3>
+<h3 id="modulation">调制方式</h3>
 The modulation schemes supported are
 <ul>
     <li>in the downlink, QPSK, 16QAM, 64QAM, 256QAM, and 1024QAM,</li>
@@ -99,7 +99,7 @@ The modulation schemes supported are
 </ul>
 
 
-<h3>PHY层支持的过程</h3>
+<h3 id="procedure">PHY层支持的过程</h3>
 <ul>
     <li>Cell search</li>
     <li>Power control</li>
@@ -112,12 +112,12 @@ The modulation schemes supported are
 </ul>
 
 
-<h3>物理层测量</h3>
+<h3 id="measurement">物理层测量</h3>
 Radio characteristics are measured by the UE and the network and reported to higher layers. 
 These include, e.g.measurements for <b>intra- and inter-frequency handover</b>, <b>inter RAT handover</b>, <b>timing measurements</b>, and measurements for <b>RRM</b>.
 
 
-<h3>其他标准</h3>
+<h3 id="others">其他标准</h3>
 <h4>TS 38.202: Physical layer services provided by the physical layer</h4>
 <ul>
     <li>Services and functions of the physical layer;</li>
@@ -183,6 +183,17 @@ These include, e.g.measurements for <b>intra- and inter-frequency handover</b>, 
                 </article>
             </div>
         </div>
+    </div>
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="#jiegou">结构</a></li>
+            <li><a href="#channel-type">信道类型</a></li>
+            <li><a href="#modulation">调制方式</a></li>
+            <li><a href="#procedure">PHY层支持的过程</a></li>
+            <li><a href="#measurement">物理层测量</a></li>
+            <li><a href="#others">其他标准</a></li>
+        </ul>
     </div>
 
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
