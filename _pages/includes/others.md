@@ -1,6 +1,6 @@
 
 # 📖 Educations
-- *2022.09 - now*, Ph.D., Tsinghua University, Beijing.
+- *2022.09 - now*, Ph.D. Candidate, Tsinghua University, Beijing.
 - *2019.09 - 2022.06*, Master, Tsinghua University, Beijing.
 - *2015.09 - 2019.06*, Undergraduate, School of Software, Shandong University, Jinan.
 
