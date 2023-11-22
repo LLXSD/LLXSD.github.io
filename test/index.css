@@ -1,0 +1,15 @@
+blockquote {
+    border-left: 4px solid #ccc; /* 左侧边框 */
+    margin: 20px 0; /* 外边距 */
+    padding: 10px 20px; /* 内边距 */
+    position: relative; /* 相对定位 */
+    font-style: italic; /* 斜体字 */
+}
+
+blockquote .fas.fa-lightbulb {
+    position: absolute; /* 绝对定位 */
+    top: 10px; /* 顶部位置 */
+    left: -30px; /* 左侧位置 */
+    font-size: 24px; /* 字体大小 */
+    color: #ccc; /* 字体颜色 */
+}
