@@ -1584,7 +1584,7 @@ pre .javascript .function {
   background: #222;
 }
 .posts-collapse .post-meta {
-  position: absolute;
+  position: relative;
   font-size: 12px;
   left: 20px;
   top: 5px;
