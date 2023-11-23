@@ -1599,7 +1599,7 @@ pre .javascript .function {
   line-height: inherit;
 }
 .posts-collapse .post-title::after {
-  margin-left: 3px;
+  margin-left: 20px;
   opacity: 0.6;
 }
 .posts-collapse .post-title a,
