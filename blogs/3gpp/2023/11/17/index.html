@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+
+<!-- body -->
+<head><meta name="generator" content="Hexo 3.8.0">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+<link rel="stylesheet" href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+<link rel="stylesheet" href="/assets/css/main-post.css?v=7.0.0">
+<!-- <link rel="apple-touch-icon" sizes="180x180" href="/images/Favico.png?v=7.0.0">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/Favico.png?v=7.0.0">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/Favico.png?v=7.0.0"> -->
+<link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  
+<!-- 设置描述性信息 -->
+<!-- <meta name="description" content="主题：龙星课程数学/算法类重难点精讲直播录屏已上传至B站，请点这里  用泊松分布建模评估测序量与覆盖率之间的关系  补充材料：龙星课程PPT day1:44-52页  看懂Kmer分析图  补充材料：基因组分析简介之K-mer分析  基因组拼接算法：de Bruijn 图的构建与寻找欧拉路径  补充材料：龙星课程PPT day2:38-55页  基于后验概率的变异检测方法  补充材料：  （1）本">
+<meta name="keywords" content="Bioinformatics,NGS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《生信与机器学习兴趣小组》第七次分享讨论&#x2F;打卡贴">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/Bioinfo-ML-Club-7th/index.html">
+<meta property="og:site_name" content="Lianm&#39;s Blog">
+<meta property="og:description" content="主题：龙星课程数学/算法类重难点精讲直播录屏已上传至B站，请点这里  用泊松分布建模评估测序量与覆盖率之间的关系  补充材料：龙星课程PPT day1:44-52页  看懂Kmer分析图  补充材料：基因组分析简介之K-mer分析  基因组拼接算法：de Bruijn 图的构建与寻找欧拉路径  补充材料：龙星课程PPT day2:38-55页  基于后验概率的变异检测方法  补充材料：  （1）本">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-03T12:45:46.353Z"> -->
+<!-- <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《生信与机器学习兴趣小组》第七次分享讨论&#x2F;打卡贴">
+<meta name="twitter:description" content="主题：龙星课程数学/算法类重难点精讲直播录屏已上传至B站，请点这里  用泊松分布建模评估测序量与覆盖率之间的关系  补充材料：龙星课程PPT day1:44-52页  看懂Kmer分析图  补充材料：基因组分析简介之K-mer分析  基因组拼接算法：de Bruijn 图的构建与寻找欧拉路径  补充材料：龙星课程PPT day2:38-55页  基于后验概率的变异检测方法  补充材料：  （1）本"> -->
+<!-- 设置描述性信息 -->
+
+<!-- <link rel="canonical" href="http://yoursite.com/2019/09/03/Bioinfo-ML-Club-7th/"> -->
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+<!-- title -->
+<title> TS 38.201</title>
+  
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+</head>
+
+<!-- body -->
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+<!-- 可能是显示相关设置 -->
+<div class="container sidebar-position-left page-post-detail">
+<div class="headband"></div>
+<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="header-inner"><div class="site-brand-wrapper">
+    <div class="site-meta">
+    <div class="custom-logo-site-title">
+        <a href="/" class="brand" rel="start">
+            <span class="logo-line-before"><i></i></span>
+            <span class="site-title">Lixin's Blog</span>
+            <span class="logo-line-after"><i></i></span>
+        </a>
+    </div>
+    <!-- <p class="site-subtitle">Focus on Bioinformatics and Machine-Learning</p> -->
+    </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<!-- 导航栏 -->
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+            <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+        </li>
+        
+        <li class="menu-item menu-item-tags">
+            <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+        </li>
+        
+        <li class="menu-item menu-item-categories">
+            <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+        </li>
+        
+        <!-- <li class="menu-item menu-item-archives">
+            <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+        </li> -->
+
+        <!-- <li class="menu-item menu-item-search">
+            <a href="javascript:;" class="popup-trigger">
+                <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li> -->
+    </ul>
+
+<!-- <div class="site-search">   
+    <div class="popup search-popup local-search-popup">
+        <div class="local-search-header clearfix">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+            <div class="local-search-input-wrapper">
+                <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+            </div>
+        </div>
+        <div id="local-search-result"></div>
+    </div>
+</div>   -->
+
+</nav>
+
+</div>
+</header>
+<!-- 导航栏结束 -->
+    
+  
+<!-- <a href="https://github.com/Ming-Lian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a> -->
+<main id="main" class="main">
+<div class="main-inner">
+<div class="content-wrap">
+    <div id="content" class="content">
+    <div id="posts" class="posts-expand">
+    <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/Bioinfo-ML-Club-7th/">
+    <!-- author信息 -->
+    <!-- <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lianm">
+      <meta itemprop="description" content="中国科学院北京基因组研究所研究生">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span> -->
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lixin's Blog">
+    </span>
+
+<!-- 页面内标题 -->
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"> TS 38.201 NR; Physical layer; General description (Release 18) </h1>
+        <div class="post-meta">
+            <span class="post-time">
+                <span class="post-meta-item-icon">
+                    <i class="fa fa-calendar-o"></i>
+                </span>
+                <span class="post-meta-item-text">发表于</span>
+                <time title="创建时间：2023-11-17 20:23:08 / 修改时间：20:45:46" itemprop="dateCreated datePublished" datetime="2023-11-17T20:23:08+08:00">2023-11-17</time>
+            </span>
+            <span class="post-category">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                    <i class="fa fa-folder-o"></i>
+                </span>
+                <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Standards/" itemprop="url" rel="index"><span itemprop="name">Standards</span></a></span>
+            </span>
+        </div>
+    </header>
+    
+<div class="post-body" itemprop="articleBody">
+<!-- 文章内容开始 -->
+
+<p> TS38.201是介绍性的标准，简单介绍了RAN的信道组成和PHY层承担的功能，下图是PHY层相关标准的关系。</p>
+<img src="/images/blogs/3gpp/38.201-1.png" alt="PHY层标准" width="600" height="450">
+
+<h3 id="jiegou">结构</h3>
+<p> 如图所示，不同层/子层之间的圆圈表示服务接入点(SAP)，其中L2包括MAC，RLC，PDCP和SDAP。PHY为MAC提供传输信道（信息如何通过无线电接口传输），MAC为RLC提供逻辑信道（所传输信息的类型），RLC为PDCP提供RLC信道，PDCP为上层提供无线承载，SDAP提供QoS Flow级别服务。<p> 
+<img src="/images/blogs/3gpp/38.201-2.png" alt="不同层关系" width="850" height="400">
+
+
+<h3 id="channel-type">信道类型</h3>
+The physical channels defined in the downlink are:
+<ul>
+    <li>the Physical Downlink Shared Channel (PDSCH),</li>
+    <li>the Physical Downlink Control Channel (PDCCH),</li>
+    <li>the Physical Broadcast Channel (PBCH),</li>
+</ul>
+
+The physical channels defined in the uplink are:
+<ul>
+    <li>the Physical Random Access Channel (PRACH),</li>
+    <li>the Physical Uplink Shared Channel (PUSCH),</li>
+    <li>the Physical Uplink Control Channel (PUCCH).</li>
+</ul>
+
+The physical channels defined in the sidelink are:
+<ul>
+    <li>the Physical Sidelink Broadcast Channel (PSBCH),</li>
+    <li>the Physical Sidelink Control Channel (PSCCH),</li>
+    <li>the Physical Sidelink Feedback Channel (PSFCH),</li>
+    <li>the Physical Sidelink Shared Channel (PSSCH).</li>
+</ul>
+
+In addition, signals are defined as <b>reference signals</b>, <b>primary</b> and <b>secondary synchronization signals</b>.
+
+<h3 id="modulation">调制方式</h3>
+The modulation schemes supported are
+<ul>
+    <li>in the downlink, QPSK, 16QAM, 64QAM, 256QAM, and 1024QAM,</li>
+    <li>in the uplink, QPSK, 16QAM, 64QAM and 256QAM for OFDM with a CP and π/2-BPSK, QPSK, 16QAM,64QAM and 256QAM for DFT-s-OFDM with a CP.</li>
+</ul>
+
+
+<h3 id="procedure">PHY层支持的过程</h3>
+<ul>
+    <li>Cell search</li>
+    <li>Power control</li>
+    <li>Uplink synchronisation and Uplink timing control</li>
+    <li>Random access related procedures</li>
+    <li>HARQ related procedures</li>
+    <li>Beam management and CSI related procedures</li>
+    <li>Sidelink related procedures</li>
+    <li>Channel access procedures</li>   
+</ul>
+
+
+<h3 id="measurement">物理层测量</h3>
+Radio characteristics are measured by the UE and the network and reported to higher layers. 
+These include, e.g.measurements for <b>intra- and inter-frequency handover</b>, <b>inter RAT handover</b>, <b>timing measurements</b>, and measurements for <b>RRM</b>.
+
+
+<h3 id="others">其他标准</h3>
+<h4>TS 38.202: Physical layer services provided by the physical layer</h4>
+<ul>
+    <li>Services and functions of the physical layer;</li>
+    <li>Model of physical layer of the UE;</li>
+    <li>Parallel transmission of simultaneous physical channels and SRS;</li>
+    <li>Measurements provided by the physical layer.</li>
+</ul>
+
+<h4>TS 38.211: Physical channels and modulation</h4>
+<ul>
+    <li>Definition of the uplink, downlink and sidelink physical channels;</li>
+    <li>Frame structure and physical resources;</li>
+    <li>Modulation mapping (BPSK, QPSK, etc);</li>
+    <li>OFDM signal generation;</li>
+    <li>Scrambling, modulation and upconversion;</li>
+    <li>Layer mapping and precoding;</li>
+    <li>Physical shared channel in uplink, downlink and sidelink;</li>
+    <li>Reference signal in uplink, downlink and sidelink;</li>
+    <li>Physical random access channel;</li>
+    <li>Primary and secondary synchronization signals.</li>
+</ul>
+
+<h4>TS 38.212: Multiplexing and channel coding</h4>
+<ul>
+    <li>Channel coding schemes;</li>
+    <li>Rate matching;</li>
+    <li>Uplink transport channels and control information;</li>
+    <li>Downlink transport channels and control information;</li>
+    <li>Sidelink transport channels and control information.</li>
+</ul>
+
+<h4>TS 38.213: Physical layer procedures for control</h4>
+<ul>
+    <li>Synchronization procedures;</li>
+    <li>Uplink power control;</li>
+    <li>Random access procedure;</li>
+    <li>UE procedure for reporting control information;</li>
+    <li>UE procedure for receiving control information.</li>
+</ul>
+
+<h4>TS 38.214: Physical layer procedures for data</h4>
+<ul>
+    <li>Power control;</li>
+    <li>Physical downlink shared channel related procedures;</li>
+    <li>Physical uplink shared channel related procedure;</li>
+    <li>Physical sidelink shared channel related procedure.</li>
+</ul>
+
+<h4>TS 38.215: Physical layer measurements</h4>
+<ul>
+    <li>Control of UE/NG-RAN measurements;</li>
+    <li>Measurement capabilities for NR.</li>
+</ul>
+
+<h4>TS 37.213: Physical layer procedures for shared spectrum channel access</h4>
+<ul>
+    <li>Downlink channel access procedures;</li>
+    <li>Uplink channel access procedures;</li>
+    <li>Sidelink channel access procedures.</li>
+</ul>
+
+
+<!-- 文章内容最后 -->
+</div>
+
+<footer class="post-footer">
+    <!-- 标签信息 -->
+    <div class="post-tags">
+        <a href="/tags/3GPP/" rel="tag"># 3GPP Standards</a>
+    </div>
+    <!-- 文章信息 -->
+    <div class="post-nav">
+        <!-- 上一篇 -->
+        <div class="post-nav-next post-nav-item">
+            <!-- <a href="/2019/08/19/Bioinfo-ML-Club-6th/" rel="next" title="《生信与机器学习兴趣小组》第六次分享讨论贴">
+                <i class="fa fa-chevron-left"></i> 《生信与机器学习兴趣小组》第六次分享讨论贴
+            </a> -->
+        </div>
+        <!-- 下一篇 -->
+        <span class="post-nav-divider"></span>
+        <div class="post-nav-prev post-nav-item">
+
+        </div>
+    </div>
+</footer>
+
+</div>
+</article>
+
+</div>
+</div>
+<!-- github comments -->
+    <!-- <div class="comments" id="comments">
+        <div id="gitment-container"></div>
+    </div> -->
+    
+</div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+
+ <!-- 右侧边栏开始 --> 
+<aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+ <!-- 右侧边栏内容 -->    
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li>
+          <!-- <li class="sidebar-nav-overview" data-target="site-overview-wrap">站点概览</li> -->
+        </ul>
+      
+<!-- 站点概览 --> 
+      <!-- <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Lianm">
+            
+              <p class="site-author-name" itemprop="name">Lianm</p>
+              <p class="site-description motion-element" itemprop="description">中国科学院北京基因组研究所研究生</p>
+          </div> -->
+
+<!-- 站点概览部分统计 -->        
+            <!-- <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+    
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+ 
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav> -->
+
+<!-- 站点概览部分联系方式 -->
+            <!-- <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Ming-Lian" title="GitHub &rarr; https://github.com/Ming-Lian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:lianming17m@big.ac.cn" title="E-Mail &rarr; mailto:lianming17m@big.ac.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.jianshu.com/u/42e711970fa8" title="简书 &rarr; https://www.jianshu.com/u/42e711970fa8" rel="noopener" target="_blank"><i class="fa fa-fw fa-jianshu"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/understorm_lianm" title="知乎 &rarr; https://www.zhihu.com/people/understorm_lianm" rel="noopener" target="_blank"><i class="fa fa-fw fa-zhihu"></i>知乎</a>
+                </span>
+              
+            </div> -->
+        <!-- </div>
+      </div> -->
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            <!-- 目录 -->
+            <div class="post-toc-content">
+                <ol class="nav">
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#jiegou">
+                            <span class="nav-text">结构</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#channel-type">
+                            <span class="nav-text">信道类型</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#modulation">
+                            <span class="nav-text">调制方式</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#procedure">
+                            <span class="nav-text">PHY层支持的过程</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#measurement">
+                            <span class="nav-text">物理层测量</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#others">
+                            <span class="nav-text">其他标准</span>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+          </div>
+        </div>
+      <!--/noindex-->
+
+<!-- 右侧边栏结束 --> 
+    </div>
+</aside>
+
+
+        
+      </div>
+    </main>
+
+<!-- 页面最下方的描述 -->
+
+<!-- <footer id="footer" class="footer">
+    <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <span class="with-love" id="animate">
+            <i class="fa fa-user"></i>
+        </span>
+        <span class="author" itemprop="copyrightHolder">Lianm</span>
+        </div>
+        <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+        <span class="post-meta-divider">|</span>
+        <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+    </div>
+</footer> -->
+
+<!-- 返回顶部 -->
+<div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>        
+</div>
+      
+</div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/assets/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+  <script src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/assets/lib/three/three.min.js"></script>
+  <script src="/assets/lib/three/three-waves.min.js"></script>
+  <script src="/assets/js/src/utils.js?v=7.0.0"></script>
+  <script src="/assets/js/src/motion.js?v=7.0.0"></script>
+  <script src="/assets/js/src/schemes/muse.js?v=7.0.0"></script>
+  <script src="/assets/js/src/scrollspy.js?v=7.0.0"></script>
+  <script src="/assets/js/src/post-details.js?v=7.0.0"></script>
+  <script src="/assets/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<!-- github comment -->
+<!-- <style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'Ming-Lian',
+      repo: 'Gitment-repo',
+      
+      oauth: {
+      
+      
+        client_secret: '3dc34ff32bbb0ee876b487f13a800b08857e0a10',
+      
+        client_id: '0e14870b1fb232903713'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script> -->
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; 
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+</body>
+</html>
