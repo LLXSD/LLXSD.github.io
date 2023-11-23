@@ -1585,7 +1585,6 @@ pre .javascript .function {
 }
 .posts-collapse .post-meta {
   position: absolute;
-  margin-right: 3px;
   font-size: 12px;
   left: 20px;
   top: 5px;
@@ -1621,7 +1620,6 @@ pre .javascript .function {
   font-weight: 400;
 }
 .posts-expand .post-title-link {
-  margin-left: 3px;
   display: inline-block;
   position: relative;
   color: #555;
