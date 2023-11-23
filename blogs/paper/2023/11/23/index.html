@@ -197,7 +197,7 @@
                     <i class="fa fa-calendar-o"></i>
                 </span>
                 <span class="post-meta-item-text">发表于</span>
-                <time title="创建时间：2023-11-17 20:23:08 / 修改时间：20:45:46" itemprop="dateCreated datePublished" datetime="2023-11-17T20:23:08+08:00">2023-11-23</time>
+                <time itemprop="dateCreated datePublished">2023-11-23</time>
             </span>
             <span class="post-category">
                 <span class="post-meta-divider">|</span>
@@ -205,7 +205,7 @@
                     <i class="fa fa-folder-o"></i>
                 </span>
                 <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Standards/" itemprop="url" rel="index"><span itemprop="name">Standards</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Measurement/" itemprop="url" rel="index"><span itemprop="name">Measurement</span></a></span>
             </span>
         </div>
     </header>
@@ -213,148 +213,28 @@
 <div class="post-body" itemprop="articleBody">
 <!-- 文章内容开始 -->
 
-<p> TS38.201是介绍性的标准，简单介绍了RAN的信道组成和PHY层承担的功能，下图是PHY层相关标准的关系。</p>
-<img src="/images/blogs/3gpp/38.201-1.png" alt="PHY层标准" width="600" height="450">
-
-<h3 id="jiegou">结构</h3>
-<p> 如图所示，不同层/子层之间的圆圈表示服务接入点(SAP)，其中L2包括MAC，RLC，PDCP和SDAP。PHY为MAC提供传输信道（信息如何通过无线电接口传输），MAC为RLC提供逻辑信道（所传输信息的类型），RLC为PDCP提供RLC信道，PDCP为上层提供无线承载，SDAP提供QoS Flow级别服务。<p> 
-<img src="/images/blogs/3gpp/38.201-2.png" alt="不同层关系" width="850" height="400">
-
-
-<h3 id="channel-type">信道类型</h3>
-The physical channels defined in the downlink are:
-<ul>
-    <li>the Physical Downlink Shared Channel (PDSCH),</li>
-    <li>the Physical Downlink Control Channel (PDCCH),</li>
-    <li>the Physical Broadcast Channel (PBCH),</li>
-</ul>
-
-The physical channels defined in the uplink are:
-<ul>
-    <li>the Physical Random Access Channel (PRACH),</li>
-    <li>the Physical Uplink Shared Channel (PUSCH),</li>
-    <li>the Physical Uplink Control Channel (PUCCH).</li>
-</ul>
-
-The physical channels defined in the sidelink are:
-<ul>
-    <li>the Physical Sidelink Broadcast Channel (PSBCH),</li>
-    <li>the Physical Sidelink Control Channel (PSCCH),</li>
-    <li>the Physical Sidelink Feedback Channel (PSFCH),</li>
-    <li>the Physical Sidelink Shared Channel (PSSCH).</li>
-</ul>
-
-In addition, signals are defined as <b>reference signals</b>, <b>primary</b> and <b>secondary synchronization signals</b>.
-
-<h3 id="modulation">调制方式</h3>
-The modulation schemes supported are
-<ul>
-    <li>in the downlink, QPSK, 16QAM, 64QAM, 256QAM, and 1024QAM,</li>
-    <li>in the uplink, QPSK, 16QAM, 64QAM and 256QAM for OFDM with a CP and π/2-BPSK, QPSK, 16QAM,64QAM and 256QAM for DFT-s-OFDM with a CP.</li>
-</ul>
-
-
-<h3 id="procedure">PHY层支持的过程</h3>
-<ul>
-    <li>Cell search</li>
-    <li>Power control</li>
-    <li>Uplink synchronisation and Uplink timing control</li>
-    <li>Random access related procedures</li>
-    <li>HARQ related procedures</li>
-    <li>Beam management and CSI related procedures</li>
-    <li>Sidelink related procedures</li>
-    <li>Channel access procedures</li>   
-</ul>
-
-
-<h3 id="measurement">物理层测量</h3>
-Radio characteristics are measured by the UE and the network and reported to higher layers. 
-These include, e.g.measurements for <b>intra- and inter-frequency handover</b>, <b>inter RAT handover</b>, <b>timing measurements</b>, and measurements for <b>RRM</b>.
-
-
-<h3 id="others">其他标准</h3>
-<h4>TS 38.202: Physical layer services provided by the physical layer</h4>
-<ul>
-    <li>Services and functions of the physical layer;</li>
-    <li>Model of physical layer of the UE;</li>
-    <li>Parallel transmission of simultaneous physical channels and SRS;</li>
-    <li>Measurements provided by the physical layer.</li>
-</ul>
-
-<h4>TS 38.211: Physical channels and modulation</h4>
-<ul>
-    <li>Definition of the uplink, downlink and sidelink physical channels;</li>
-    <li>Frame structure and physical resources;</li>
-    <li>Modulation mapping (BPSK, QPSK, etc);</li>
-    <li>OFDM signal generation;</li>
-    <li>Scrambling, modulation and upconversion;</li>
-    <li>Layer mapping and precoding;</li>
-    <li>Physical shared channel in uplink, downlink and sidelink;</li>
-    <li>Reference signal in uplink, downlink and sidelink;</li>
-    <li>Physical random access channel;</li>
-    <li>Primary and secondary synchronization signals.</li>
-</ul>
-
-<h4>TS 38.212: Multiplexing and channel coding</h4>
-<ul>
-    <li>Channel coding schemes;</li>
-    <li>Rate matching;</li>
-    <li>Uplink transport channels and control information;</li>
-    <li>Downlink transport channels and control information;</li>
-    <li>Sidelink transport channels and control information.</li>
-</ul>
-
-<h4>TS 38.213: Physical layer procedures for control</h4>
-<ul>
-    <li>Synchronization procedures;</li>
-    <li>Uplink power control;</li>
-    <li>Random access procedure;</li>
-    <li>UE procedure for reporting control information;</li>
-    <li>UE procedure for receiving control information.</li>
-</ul>
-
-<h4>TS 38.214: Physical layer procedures for data</h4>
-<ul>
-    <li>Power control;</li>
-    <li>Physical downlink shared channel related procedures;</li>
-    <li>Physical uplink shared channel related procedure;</li>
-    <li>Physical sidelink shared channel related procedure.</li>
-</ul>
-
-<h4>TS 38.215: Physical layer measurements</h4>
-<ul>
-    <li>Control of UE/NG-RAN measurements;</li>
-    <li>Measurement capabilities for NR.</li>
-</ul>
-
-<h4>TS 37.213: Physical layer procedures for shared spectrum channel access</h4>
-<ul>
-    <li>Downlink channel access procedures;</li>
-    <li>Uplink channel access procedures;</li>
-    <li>Sidelink channel access procedures.</li>
-</ul>
-
-
 <!-- 文章内容最后 -->
 </div>
 
 <footer class="post-footer">
     <!-- 标签信息 -->
     <div class="post-tags">
-        <a href="/tags/3GPP/" rel="tag"># 3GPP Standards</a>
+        <a href="/tags/Measurement/" rel="tag"># Measurement</a>
     </div>
     <!-- 文章信息 -->
     <div class="post-nav">
         <!-- 上一篇 -->
         <div class="post-nav-next post-nav-item">
-            <!-- <a href="/2019/08/19/Bioinfo-ML-Club-6th/" rel="next" title="《生信与机器学习兴趣小组》第六次分享讨论贴">
-                <i class="fa fa-chevron-left"></i> 《生信与机器学习兴趣小组》第六次分享讨论贴
-            </a> -->
+            <a href="/blogs/3gpp/2023/11/17/" rel="next" title="TS 38.201">
+                <i class="fa fa-chevron-left"></i> TS 38.201 标准阅读
+            </a>
         </div>
         <!-- 下一篇 -->
         <span class="post-nav-divider"></span>
         <div class="post-nav-prev post-nav-item">
-
+            <!-- <a href="/2019/05/05/Understand-Variants-Calling/" rel="prev" title="深入理解基因组变异检测(variants calling)">
+              深入理解基因组变异检测(variants calling) <i class="fa fa-chevron-right"></i>
+            </a> -->
         </div>
     </div>
 </footer>
@@ -370,8 +250,6 @@ These include, e.g.measurements for <b>intra- and inter-frequency handover</b>, 
     </div> -->
     
 </div>
-        
-          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
