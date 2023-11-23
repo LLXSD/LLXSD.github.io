@@ -235,7 +235,7 @@ a:hover {
     position: relative; */
     position: fixed; /* 固定位置 */
     left: 0;         /* 左侧对齐 */
-    top: 0;          /* 顶部对齐 */
+    top: 60px;          /* 顶部对齐 */
     width: 220px;    /* 目录宽度 */
     height: 100%;    /* 高度占满整个视窗 */
     overflow: auto;  /* 内容过多时出现滚动条 */
