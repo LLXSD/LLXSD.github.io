@@ -212,6 +212,147 @@
     
 <div class="post-body" itemprop="articleBody">
 <!-- 文章内容开始 -->
+<h1 id="summary">SUMMARY</h1>
+<p>由于Starlink网络和调度算法不透明，难以优化网络性能和验证方案，因此文章尝试测量Starlink性能。</p>
+<h2>Main findings</h2>
+<ol>
+<li>Starlink routes traffic from user terminals to their ground stations in a two-step process:</li>
+</ol>
+<ul>
+<li><strong>global network controller</strong> 根据负载、地理空间条件、卫星电能等因素向每个用户终端分配卫星（每15秒全球更新）。</li>
+<li><strong>local on-satellite controller</strong> 调度其服务用户的数据流。
+文章通过4个分散在不同地区的终端（时间同步）和FCC文件验证上述发现。</li>
+</ul>
+<ol start="2">
+<li>Starlink卫星分配的倾向性：</li>
+</ol>
+<ul>
+<li><strong>仰角高</strong>：距离更近，对latency，RSS和energy都更友好</li>
+<li><strong>North</strong>：从实验结果来看，更倾向North West</li>
+<li><strong>新卫星</strong>：降低卫星寿命差距，以allow the constellation to stay stable for longer</li>
+<li><strong>阳面</strong>：降低卫星能源消耗，从实验结果看，仅当dark satellite的仰角有明显优势时才会选择dark satellite</li>
+</ul>
+<h2>Methodology</h2>
+<p>文章利用<a href="https://github.com/sparky8512/starlink-grpc-tools">starlink-grpc-tools</a>获取2D obstruction map，其处理思路值得借鉴。</p>
+
+<h1 id="experiment">EXPERIMENT</h1>
+<p>如图所示是Starlink结构图，其中elevation和azimuth是文章确定接入卫星的两个关键变量。</p>
+<p><img src="/images/blogs/paper/measurement-obstruction-map-eco.png" alt="图片" /></p>
+<h2>Setup</h2>
+<ul>
+<li>探针：4个Starlink终端，位于Western Europe, Northeast US, Midwest US, and Northwest US.</li>
+<li>Router配置：configure the Starlink router to operate in <strong>bridge mode</strong> and connect it to a dedicated Raspberry Pi via Ethernet.</li>
+<li>探测目的地：the destination of measurements are servers colocated at the Starlink PoPs assigned to the regions of our user terminals.
+<span style="color: #C95454;">问题：探测PoP节点返回的是粗粒度的城市级信息，如何确定所在地区PoP的准确位置？</span></li>
+<li>测量指标: round-trip times and packet loss rates between sources and destination servers.<br />
+Packets were sent using iRTT at the rate of 1 packet/20 ms and iPerf3 at a bandwidth of 50% of the upstream connection.</li>
+<li>其他：Record high-resolution round-trip times and packet loss rates.
+The clocks of vantage points and servers were routinely synchronized using NTP.</li>
+</ul>
+<h2>Observation</h2>
+<p>基于如下图所示RTT结果，得到两个观察：</p>
+<p><img src="/images/blogs/paper/measurement-obstruction-map-rtt.png" alt="图片" /></p>
+<p><em><strong>1. Starlink relies on a global controller for satellite-to-terminal scheduling</strong></em>.</p>
+<p>分布在不同位置的4个终端都观测到如图所示 RTT 15秒改变一次的现象，文章认为其实验配置已经消除了地面网络等外部因素的影响，且在<a href="https://pdfhost.io/v/BnYWSR~wq_Starlink_Services_LLC_Application_for_ETC_Designation">FCC文档</a>中找到了对应的描述，所以认为上述finding是可信的。</p>
+<p>FCC文档中对应描述如下：</p>
+<p><img src="/images/blogs/paper/FCC-15-second.png" alt="图片" /></p>
+<p><em><strong>2. Starlink uses an on-satellite controller for scheduling terminal flows</strong></em>.</p>
+<blockquote>
+<p>The second peculiar characteristic of the latency measurements from our user terminals is that within the fifteen-second time interval, latency measurements the user terminal frequently form parallel bands that are a few milliseconds apart.</p>
+</blockquote>
+
+<h1 id="obtaining">OBTAINING SATELLITE ALLOCATIONS</h1>
+<p>文章利用Starlink的<strong>obstruction maps</strong>来识别分配给特定用户终端的卫星。</p>
+<h2>Data</h2>
+<p><em><strong>1. Obstruction maps</strong></em>:</p>
+<p>Obstruction maps are 123px x 123px, 2-dimensional images that mark the trajectory of satellites that <strong>recently served the user terminal</strong>.
+The authors use <a href="https://github.com/sparky8512/starlink-grpc-tools">starlink-grpc-tools</a> to extract the 2-D obstruction maps every 15 seconds from each terminal.</p>
+<p><em><strong>2. Satellite positions</strong></em>:</p>
+<p>The paper uses CelesTrak to get the TLEs for Starlink satellites, then uses the SGP4 satellite propagation algorithm to calculate satellite positions.</p>
+<h2>Methods</h2>
+<p><em><strong>1. Uncovering gRPC obstruction map parameters</strong></em>:</p>
+<p>2D obstruction map 只包含白色像素，这些白色像素描绘了最近连接的卫星的轨迹，没有任何进一步的背景信息（例如，仰角和方位角）。
+为此，文章将记录的2D地图与Starlink应用程序上观察到的3D地图对齐。</p>
+<blockquote>
+<p>From this alignment, we find that: (1) the 2-d obstruction map is a polar plot <strong>centered at 62x62</strong>; (2) <strong>the radius of the polar plot represents the angle of elevation</strong> and ranges from 25 to 90; and (3) <strong>the θ of the polar plot represents the azimuth</strong>, where θ = 0 represents the North.</p>
+</blockquote>
+<p>由于obstruction map是一个包含polar plot的正方形，我们还需要获得这个正方形内polar plot的边界。</p>
+<p>文章通过连续两天保持终端在线来实现这一目标。
+在两天的时间里，终端将与几乎所有可见范围内的卫星建立连接。
+这将导致gRPC地图中的polar plot区域基本上完全着色，因为gRPC地图不会重置（除非终端离线）。</p>
+<p>使用图3e所示地图，确定polar plot的半径为45px。</p>
+<p><img src="/images/blogs/paper/measurement-obstruction-map-map.png" alt="图片" /></p>
+<p><em><strong>2. Isolating satellite trajectory</strong></em>:</p>
+<blockquote>
+<p>we perform an <strong>XOR</strong> operation on the obstruction map from x and x-1 (i.e., the prior 15-second slot).</p>
+</blockquote>
+<p>这将删除两个图共有的卫星轨迹，只有在x slot终端连接的卫星的轨迹可见。</p>
+<p>我们要求卫星轨迹不要与以前连接的卫星的轨迹重叠（因为XOR会消除重叠）。
+为了确保满足此条件，我们每10分钟执行一次终端重置（因为重置终端会启动一个新的gRPC地图）。</p>
+<p><span style="color: #C95454;">问题：10分钟是如何确定的？</span></p>
+<p><em><strong>3. Identifying serving satellites</strong></em>:</p>
+<ul>
+<li>根据TLE数据传播，得到在特定时刻可见的所有卫星的ID；</li>
+<li>计算卫星的elevation和azimuth;</li>
+<li>将轨迹信息转换到笛卡尔坐标系，并且计算Dynamic Time Warping (DTW)距离，比较与测量结果的相似度，最相似的即为服务卫星。</li>
+</ul>
+<p>文章对比了计算结果和人工确认结果，有99%的情况二者是相同的，由此认为极大概率这种方案是对的。</p>
+<blockquote>
+<p>We validate our similarity matching via a manual (visual) pilot test study, in which the authors manually identified the best match between 500 sets of gRPC and TLE trajectories. The DTW similarity method and our manual tests overlapped on over 99% of all outcomes.</p>
+</blockquote>
+
+<h1 id="discussion">DISCUSSION OF FACTORS AFFECTING STARLINK'S GLOBAL SCHEDULER DECISIONS</h1>
+<h2>Satellite position</h2>
+<p>The position of a satellite in the sky is defined by its AOE and azimuth with respect to the user terminal.</p>
+<p>更倾向选择仰角高的卫星。</p>
+<p><img src="/images/blogs/paper/measurement-obstruction-map-elevation.png" alt="图片" /></p>
+<p>更倾向选择北方的卫星（North West）。</p>
+<p><img src="/images/blogs/paper/measurement-obstruction-map-azimuth.png" alt="图片" /></p>
+<p>文章认为原因有二：
+(1) ITU对干扰的限制导致网络倾向为终端分配仰角更高，距离更近的卫星。
+(2) 仰角越高，距离越近，能耗越低。</p>
+<h2>Satellite launch dates</h2>
+<p>更倾向选择新发射的卫星，可降低卫星寿命差距，让星座在更长一段时间内保持稳定。</p>
+<p><img src="/images/blogs/paper/measurement-obstruction-map-launch.png" alt="图片" /></p>
+<h2>Being sunlit</h2>
+<blockquote>
+<p>The global scheduler opts for the sunlit satellites 72.3% of the time averaged over all locations. We also find that the global scheduler only picks dark satellites during 15 second slots where the %(dark/available) satellites is &gt;= 35% (averaged over all locations).</p>
+</blockquote>
+<p>从实验结果看，倾向选择阳面的卫星，仅当阴面卫星的仰角有明显优势时才会选择阴面卫星。</p>
+
+<h1 id="modeling">MODELING</h1>
+<p><em><strong>1. Feature selection</strong></em>:</p>
+<p>Cluster the available satellites based on their azimuth (θ), angle of elevation (ϕ), age (a), and sunlit status (ε).</p>
+<p><em><strong>2. Training, testing, and validating</strong></em>:</p>
+<ul>
+<li>A random forest model because of its robustness to overfitting and the explainability of its predictions.</li>
+<li>Got the parameters of the model using grid-search and five-fold cross-validation.</li>
+</ul>
+<p><em><strong>3. Evaluating</strong></em>:</p>
+<ul>
+<li>Top-k-accuracy metric</li>
+<li>Baseline model: simply returns the (top-𝑘) cluster(s) with the most number of available satellites as its prediction.</li>
+</ul>
+<p><img src="/images/blogs/paper/measurement-obstruction-map-model.png" alt="图片" /></p>
+<p>在每个time slot进行验证，每次推测k个cluster，只要包含正确卫星在的cluster，则认为正确。
+统计所有slot的结果，得到准确率。</p>
+<p>验证的粒度是非常粗的，且baseline太弱了，根据前面对三种因素的讨论设计多种对比方案更有价值。</p>
+<p><em><strong>4. Limitation</strong></em>:</p>
+<blockquote>
+<p>We expect that other publicly-unavailable features such as terminal density in a region and satellite load characteristics will also impact the global scheduler.</p>
+</blockquote>
+<h1 id="thinking">THINKING</h1>
+<p><span style="color: #228538;"><strong>优点</strong>：文章利用grpc获取2D obstruction map图，并结合TLE数据推测接入卫星的思路值得借鉴。</span></p>
+<span style="color: #C95454;">
+**缺点**：
+<ol>
+<li>文章只关注了global controller，没有展开讨论local on-satellite controller的部分。这部分相对困难，可利用的外部信息较少，获取在后续投稿版本中会有更多讨论。</li>
+<li>method部分有的说法需要更清晰的表述，细节上有不清晰的地方。比如，为什么每10分钟重启就可以解决轨迹重复的问题？这个粒度是合适的吗？</li>
+<li>文章所提模型的粒度比较粗，目前版本很难准确推测接入卫星，采用RF模型有些shallow了。</li>
+<li>仅讨论了position, launch dates和sunlit指标的影响，其他指标没有讨论。</li>
+<li>Baseline太弱了，根据前面对三种因素的讨论设计多种对比方案更有价值。</li>
+</ol>
+</span>
 
 <!-- 文章内容最后 -->
 </div>
@@ -340,38 +481,38 @@
             <div class="post-toc-content">
                 <ol class="nav">
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#jiegou">
-                            <span class="nav-text">结构</span>
+                        <a class="nav-link" href="#summary">
+                            <span class="nav-text"><SUMMARY</SUMMary></span>
                         </a>
                     </li>
                     
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#channel-type">
-                            <span class="nav-text">信道类型</span>
+                        <a class="nav-link" href="#experiment">
+                            <span class="nav-text">EXPERIMENT</span>
                         </a>
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#modulation">
-                            <span class="nav-text">调制方式</span>
+                        <a class="nav-link" href="#obtaining">
+                            <span class="nav-text">OBTAINING SATELLITE ALLOCATIONS</span>
                         </a>
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#procedure">
-                            <span class="nav-text">PHY层支持的过程</span>
+                        <a class="nav-link" href="#discussion">
+                            <span class="nav-text">DISCUSSION OF FACTORS AFFECTING STARLINK'S GLOBAL SCHEDULER DECISIONS</span>
                         </a>
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#measurement">
-                            <span class="nav-text">物理层测量</span>
+                        <a class="nav-link" href="#modeling">
+                            <span class="nav-text">MODELING</span>
                         </a>
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#others">
-                            <span class="nav-text">其他标准</span>
+                        <a class="nav-link" href="#thinking">
+                            <span class="nav-text">THINKING</span>
                         </a>
                     </li>
                 </ol>
