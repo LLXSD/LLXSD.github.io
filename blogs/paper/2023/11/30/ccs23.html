@@ -218,12 +218,12 @@ However, the highly configurable and customizable nature of the 5G Core turns th
 <p>A <strong>Network Repository Function (NRF)</strong> allows other NFs to register and discover each other, and is the main focus of this study. The Access and Mobility Management Function (AMF) provides UE registration, connection, and reachability management. The Unified Data Repository (UDR) provides storage for subscriber and policy-related data. The Unified Data Management (UDM) accesses UDR and manages user identity and generates authentication credentials.</p>
 <p>OAuth 2.0 is a well-established framework to govern authorization in a virtualized system. It is based on a central authorization server that issues access tokens to clients to grant access for invoking API calls. In a 5G Core, <strong>the NRF plays the role of the authorization server</strong>.</p>
 <p>NF间交互的基本过程如下：</p>
-<p>![图片](/images/blogs/paper/cellular security-access control-interaction.png)</p>
+<p><img src="/images/blogs/paper/cellular security-access control-interaction.png" alt="图片" /></p>
 <blockquote>
 <p>A valid accessTokenRequest includes the consumer’s NFInstanceID, the target service and the corresponding scopes it wishes to access, the NFInstanceID or NFType of the NFP, etc.</p>
 </blockquote>
 <h1 id="design">Design</h1>
-<p>![图片](/images/blogs/paper/cellular security-access control-architecture.png)</p>
+<p><img src="/images/blogs/paper/cellular security-access control-architecture.png" alt="图片" /></p>
 <p><strong>5GCVerif包括以下几个步骤：</strong></p>
 <ul>
 <li>模型构建：首先，构建一个抽象模型M*，该模型由一组通过认证通信通道进行通信的有限状态机（FSM）组成。M* 抽象了3GPP Release 17 技术规范中定义的5G Core访问控制机制。</li>
@@ -234,7 +234,7 @@ However, the highly configurable and customizable nature of the 5G Core turns th
 <li>模型检查过程：在此步骤中，使用符号模型检查器（如nuXmv）来验证M是否满足访问控制属性Φ。如果找到了一个反例，则表明5GC的访问控制策略存在漏洞。</li>
 <li>安全属性：将访问控制策略分解为多个简单属性，每个属性仅关注一个授权参数。这有助于简化漏洞的识别和根源分析。</li>
 </ul>
-<p>![图片](/images/blogs/paper/cellular security-access control-property.png)</p>
+<p><img src="/images/blogs/paper/cellular security-access control-property.png" alt="图片" /></p>
 <p><strong>每个步骤的关键设计点如下：</strong></p>
 <ul>
 <li>模型构建：在构建抽象模型时，需要确保模型能够捕捉到5G Core访问控制机制的核心特征，同时还要考虑可扩展性和可定制性。</li>
@@ -245,7 +245,7 @@ However, the highly configurable and customizable nature of the 5G Core turns th
 </ul>
 <h1 id="findings">Findings</h1>
 <p>文章发现了以下几类可能的漏洞，并进行了验证：</p>
-<p>![图片](/images/blogs/paper/cellular security-access control-finding.png)</p>
+<p><img src="/images/blogs/paper/cellular security-access control-finding.png" alt="图片" /></p>
 <ul>
 <li><strong>Confused Producer Attack</strong>：一个恶意消费者可以伪装成另一个消费者，从而使生产者无法正确验证权限。</li>
 <li><strong>Token Reuse Attack</strong>：一个被攻击的消费者NF可以重用先前保存的未过期的访问令牌来访问原本不应该访问的受害者NF。</li>
