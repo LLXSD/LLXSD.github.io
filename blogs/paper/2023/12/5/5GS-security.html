@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+
+<!-- body -->
+<head><meta name="generator" content="Hexo 3.8.0">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+<link rel="stylesheet" href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+<link rel="stylesheet" href="/assets/css/main-post.css?v=7.0.0">
+<link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+<!-- title -->
+<title> 5G核心网安全 </title>
+  
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+</head>
+
+<!-- body -->
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+<!-- 可能是显示相关设置 -->
+<div class="container sidebar-position-left page-post-detail">
+<div class="headband"></div>
+<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="header-inner"><div class="site-brand-wrapper">
+    <div class="site-meta">
+    <div class="custom-logo-site-title">
+        <a href="/" class="brand" rel="start">
+            <span class="logo-line-before"><i></i></span>
+            <span class="site-title">Lixin's Blog</span>
+            <span class="logo-line-after"><i></i></span>
+        </a>
+    </div>
+    </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<!-- 导航栏 -->
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+            <a href="/blogs/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+        </li>
+        
+        <li class="menu-item menu-item-tags">
+            <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+        </li>
+        
+        <li class="menu-item menu-item-categories">
+            <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+        </li>
+        
+        <!-- <li class="menu-item menu-item-archives">
+            <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+        </li> -->
+
+        <!-- <li class="menu-item menu-item-search">
+            <a href="javascript:;" class="popup-trigger">
+                <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li> -->
+    </ul>
+
+<!-- <div class="site-search">   
+    <div class="popup search-popup local-search-popup">
+        <div class="local-search-header clearfix">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+            <div class="local-search-input-wrapper">
+                <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+            </div>
+        </div>
+        <div id="local-search-result"></div>
+    </div>
+</div>   -->
+
+</nav>
+
+</div>
+</header>
+<!-- 导航栏结束 -->
+    
+<main id="main" class="main">
+<div class="main-inner">
+<div class="content-wrap">
+    <div id="content" class="content">
+    <div id="posts" class="posts-expand">
+    <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/Bioinfo-ML-Club-7th/">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lixin's Blog">
+    </span>
+
+<!-- 页面内标题 -->
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"> 5G核心网安全 </h1>
+        <div class="post-meta">
+            <span class="post-time">
+                <span class="post-meta-item-icon">
+                    <i class="fa fa-calendar-o"></i>
+                </span>
+                <span class="post-meta-item-text">发表于</span>
+                <time itemprop="dateCreated datePublished">2023-12-05</time>
+            </span>
+            <span class="post-category">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                    <i class="fa fa-folder-o"></i>
+                </span>
+                <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a></span>
+            </span>
+        </div>
+    </header>
+    
+<div class="post-body" itemprop="articleBody">
+<!-- 文章内容开始 -->
+<p><img src="/images/blogs/paper/5G%E5%8F%82%E8%80%83%E7%82%B9.png" alt="图片" /></p>
+<h2 id="5G系统的安全要求和安全服务">5G系统的安全要求和安全服务</h2>
+<h3>安全服务</h3>
+<ul>
+<li>
+<p>在准许用户接入网络前，必须执行鉴权。在鉴权过程中，用户证明自己所声称的身份，在5GS中，用户和网络需要<strong>相互鉴权</strong>。</p>
+</li>
+<li>
+<p>接入网的授权与鉴权同时进行，一旦授予用户访问权限，就需要保护UE与网络之间以及网络内不同实体之间的信令流量和用户面流量，为此可以使用<strong>加密</strong>和<strong>完整性保护</strong>。</p>
+<ul>
+<li>加密：确保传输的信息仅对预期的接收端可读。</li>
+<li>完整性保护：检测到达目标接收端的数据是否已被篡改。</li>
+</ul>
+</li>
+<li>
+<p>隐私保护是另一个重要的安全功能，用于确保用户ID不会通过空口以明文形式发送。</p>
+</li>
+</ul>
+<h3>安全域</h3>
+<p>TS 33.501将安全架构分为不同的组或域：</p>
+<ol>
+<li>
+<p><strong>网络接入安全</strong>：包括相互鉴权以及隐私功能，还包括对接入中的信令数据和用户面数据的保护，提供数据的机密性和完整性保护。[NAS鉴权]</p>
+</li>
+<li>
+<p><strong>网络域安全</strong>：支持网络功能安全地交换数据并保护它们之间的网络免受攻击的能力，包括在同一个PLMN内的NF之间以及在不同PLMN的NF之间。</p>
+</li>
+<li>
+<p><strong>用户域安全</strong>：确保对终端的物理访问的一组安全功能。例如，用户可能需要先输入PIN码，才能访问终端或使用终端中的SIM卡。</p>
+</li>
+<li>
+<p><strong>应用域安全</strong>：HTTP或IMS等应用使用的安全性功能，应用域安全通常是端到端的，处于终端中的应用与提供服务的对等实体之间。</p>
+</li>
+<li>
+<p><strong>SBA域安全</strong>：一组安全性功能，这些功能支持使用基于服务的接口/API的网络功能在网络内部以及网络域之间安全地通信。在漫游的情况下，这些功能包括网络功能注册、发现和授权，以及对基于服务的接口的保护。与4G/EPC相比，SBA域安全是一项新的安全功能，可以被视为一个独立的安全域。</p>
+</li>
+<li>
+<p><strong>安全的可见性和可配置性</strong>：对用户透明，但是有些安全性功能应当告知用户他们的运行状态。可配置性指用户可以配置一个服务的使用或提供是否依赖于一个安全功能的运行。</p>
+</li>
+</ol>
+<h2 id="网络接入安全">网络接入安全</h2>
+<p>对于所有接入，鉴权机制都可以依赖NAS过程，在所有接入中都以相同方式支持使用SUCI来隐藏永久标识。</p>
+<p>5GS支持更多的灵活性和可配置性：支持IMSI作为永久签约标识，也支持其他类型信息。5GS可支持不同类型的凭证（基于SIM卡的凭证等）和鉴权方法。</p>
+<h3>安全实体</h3>
+<ul>
+<li>
+<p><strong>ARPF（鉴权凭证存储和处理功能）</strong>：AARPF包含签约者的凭证（即长期密钥）和签约标识SUPI。 标准将ARPF与UDM NF相关联，即ARPF服务是通过UDM提供的，并且在UDM和ARPF之间未定义开放接口。可以注意到，作为一种部署选项，用户的凭证也可以存储在UDR中。</p>
+</li>
+<li>
+<p><strong>AUSF（鉴权服务器功能）</strong>：AUSF被定义为5GC架构中的独立NF，位于用户的归属网络中。它负责根据从UE和UDM/ARPF接收到的信息来处理归属网络中的鉴权。</p>
+</li>
+<li>
+<p><strong>SEAF（安全锚点功能）</strong>：SEAF是由AMF提供的功能，并基于从UE和AUSF接收的信息负责在提供服务的网络（即访问网络）中处理鉴权。</p>
+</li>
+<li>
+<p><strong>SIDF（签约标识取消隐藏功能）</strong>：SIDF是由归属网络中的UDM NF提供的服务。它负责从SUCI中解析SUPI。</p>
+</li>
+</ul>
+<h3>相比4G的改进</h3>
+<ul>
+<li>
+<p>改进的隐私保护：SUPI绝不会在5G中通过明文发送。在4G中，遇到一些罕见情况，EPS可能会使用IMSI寻呼UE。</p>
+</li>
+<li>
+<p>UE和基站之间的用户面数据的完整性保护：4G支持加密，但不支持完整性保护。5G为了更好地服务IoT设备，引入了数据完整性保护。[IoT流量比语音流量更容易受到攻击]</p>
+</li>
+<li>
+<p>改善了漫游场景中的归属运营商控制：5G允许VPLMN和HPLMN都可以参与UE的实际鉴权，并允许两个运营商验证UE已被鉴权。</p>
+</li>
+<li>
+<p>可支持SIM卡以外的凭证：4G中基于SIM卡的鉴权是唯一的方法，但是5G中针对3GPP无线接入，可以使用基于非SIM的凭证，例如证书。</p>
+</li>
+<li>
+<p>额外的安全可配置性：4G中用户面安全在eNB中始终是激活的，但是在5G中，网络会根据UDM中的签约数据在PDU会话建立时动态地进行决策，应使用哪种UP安全性（加密货完整性保护）。</p>
+</li>
+</ul>
+<p>总结来看，5G的隐私性、灵活性更强了。</p>
+<p>涉及到5G AKA鉴权算法等，过程如下图所示。</p>
+<p><img src="/images/blogs/paper/5G-AKA.png" alt="图片" /></p>
+<p>5G AKA和EAP-AKA'的相互鉴权基于USIM和网络都可以访问相同的密钥K。
+K是一个永久密钥，存储在USIM和归属网络的UDM/ARPF（或UDR）中。
+密钥K不会从UDM发送给任何NF，也不会直接用于保护任何数据，并且对于最终用户甚至终端也不可见。
+UDM和USIM会基于K生成其他密钥以便后续使用。
+派生密钥的原因之一是为了提供密钥分离并保护底层的共享密钥K。</p>
+<p><img src="/images/blogs/paper/%E5%AF%86%E9%92%A5%E5%B1%82%E6%AC%A1%E5%8C%96.png" alt="图片" /></p>
+<p><img src="/images/blogs/paper/%E5%AF%86%E9%92%A5%E6%B4%BE%E7%94%9F.png" alt="图片" /></p>
+<p>![图片](/images/blogs/paper/密钥派生- UE.png)</p>
+<h2 id="网络域安全">网络域安全</h2>
+<p>如果核心网接口运行在受信任的网络（如运营商拥有的、具有物理保护的传输网络）上，则几乎不需要附加保护。</p>
+<blockquote>
+<p>卫星网络运行在开放非受控的环境中，上述物理保护被打破。</p>
+</blockquote>
+<h3>基于服务的接口的安全考虑</h3>
+<p>基于服务的接口是3GPP引入的新的设计原则。</p>
+<p>当NF服务使用者希望访问NF服务提供者提供的服务时，5GS支持在允许对NF服务的访问之前，对使用者进行鉴权和授权。（可选的）</p>
+<p>为了保护基于服务的接口，所有网络功能均应支持TLS。不过TLS是可选的，作为替代方案，运营商还可以使用PLMN中的网络域安全（NDS/IP）。
+PLMN内的网络功能之间也支持鉴权，方法取决于链路的保护方式。如果运营商在基于TLS的传输层上使用保护，则TLS提供的基于证书的鉴权将用于NF之间的鉴权。否则，可以通过使用NDS/IP或链路物理安全。</p>
+<p>除了在NF之间进行鉴权之外，基于服务的接口的服务器端还需要授权客户端访问某个NF服务，授权框架采用RFC 6749中指定的OAuth 2.0框架。
+OAuth 2.0支持基于令牌的框架，服务使用者可以在该框架中从授权服务器获取令牌。该令牌可以用于访问NF服务提供者的特定服务。</p>
+<ol>
+<li>
+<p>在5GS中，NRF充当OAuth 2.0授权服务器，因此一个NF使用者在要访问某个NF服务时将向NRF请求令牌。</p>
+</li>
+<li>
+<p>NRF可以接受NF服务使用者的请求，并为其提供令牌，该令牌属于某个特定的NF服务提供者。</p>
+</li>
+<li>
+<p>当NF服务使用者尝试访问NF服务提供者的某个服务时，将在请求中提供令牌。</p>
+</li>
+<li>
+<p>NF服务提供者通过使用NRF的公共密钥或共享密钥来检查令牌的有效性（完整性），具体取决为OAuth 2.0框架部署了哪种密钥。</p>
+</li>
+<li>
+<p>如验证成功，则NF服务提供者将执行请求的服务，响应请求。</p>
+</li>
+</ol>
+<p>NF和NRF之间不需要用于授权的OAuth 2.0访问令牌，NRF会根据期望的NF/NF服务的特征和NF使用者的类型来允许请求。</p>
+<h3>基于IP通信的网络域安全</h3>
+<p>有关如何保护基于IP的控制面数据的规范称为基于IP的控制面的网络域安全，在TS 33.210中定义。该规范最初针对3G开放，针对4G进行了扩展，主要涵盖基于IP的控制面数据（如Diameter和GTP-C），适用于5G网络提供网络层保护。</p>
+<p>NDS/IP基于IKEv2/IPSec，因此适用于任何类型的IP通信，包括与5GS一起使用的HTTP/2。</p>
+<p>NDS/IP使用<strong>安全域</strong>的概念，<strong>安全域是由单个管理机构管理的网络</strong>，因此，在安全域内，安全级别和可用的安全服务一般是相同的。</p>
+<p>在安全域的边界上，运营商放置安全网关SEG，以保护流入/流出域的控制面数据。来自一个安全域的网络实体的所有NDS/IP数据在离开该域之前，都将通过一个SEG路由到另一个安全域。SEG之间的通信使用<strong>IPSec</strong>保护，更确切地说，使用隧道模式下的IPSec封装安全载荷（ESP）。SEG之间使用Internet密钥交换（IKE）协议版本2，即<strong>IKEv2</strong>，以建立IPSec安全关联。</p>
+<h3>N2和N3接口的安全考虑</h3>
+<p>某些情况下不能保证到gNB的链路在物理上是安全的。
+为了使用加密解决方案保护N2和N3参考点，规范要求在gNB和5GC之间<strong>使用基于IPSec ESP和IKEv2证书的鉴权</strong>。在核心网侧，可以使用SEG终结IPSec隧道，这为通过N2传输控制面数据提供了完整性、机密性和重放保护。</p>
+<p>对于N2接口，除了IPSec，规范还允许使用<strong>DTLS</strong>提供完整性保护、重放保护和机密性保护。但是，根据NDS/IP，通过DTLS提供传输层安全并不排除使用网络层保护。IPSec还有提供拓扑隐藏的优势。</p>
+<p><strong>补充：</strong></p>
+<ul>
+<li>N1接口使用NAS协议</li>
+<li>N2接口采用NGAP协议</li>
+<li>N3和N9复用了GTP-U协议</li>
+<li>其余接口使用HTTP/2协议</li>
+</ul>
+<p><img src="/images/blogs/paper/5G%E5%8F%82%E8%80%83%E7%82%B9-%E6%8E%A5%E5%8F%A3.png" alt="图片" /></p>
+
+<!-- 文章内容最后 -->
+</div>
+
+<footer class="post-footer">
+    <!-- 标签信息 -->
+    <!-- <div class="post-tags">
+        <a href="/tags/Measurement/" rel="tag"># Measurement</a>
+    </div> -->
+    <!-- 文章信息 -->
+    <div class="post-nav">
+        <!-- 上一篇 -->
+        <div class="post-nav-next post-nav-item">
+            <a href="/blogs/paper/2023/12/5/tls.html" rel="next" title="TLS协议">
+                <i class="fa fa-chevron-left"></i> TLS协议
+            </a>
+        </div>
+        <!-- 下一篇 -->
+        <span class="post-nav-divider"></span>
+        <div class="post-nav-prev post-nav-item">
+            <!-- <a href="/blogs/paper/2023/12/5/5GS-security.html" rel="prev" title="5G核心网安全">
+              5G核心网安全 <i class="fa fa-chevron-right"></i>
+            </a> -->
+        </div>
+    </div>
+</footer>
+
+</div>
+</article>
+
+</div>
+</div>
+<!-- github comments -->
+    <!-- <div class="comments" id="comments">
+        <div id="gitment-container"></div>
+    </div> -->
+    
+</div>
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+
+ <!-- 右侧边栏开始 --> 
+<aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+ <!-- 右侧边栏内容 -->    
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li>
+          <!-- <li class="sidebar-nav-overview" data-target="site-overview-wrap">站点概览</li> -->
+        </ul>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            <!-- 目录 -->
+            <div class="post-toc-content">
+                <ol class="nav">
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#5G系统的安全要求和安全服务">
+                            <span class="nav-text">5G系统的安全要求和安全服务</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#网络接入安全">
+                            <span class="nav-text">网络接入安全</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#网络域安全">
+                            <span class="nav-text">网络域安全</span>
+                        </a>
+                    </li>
+
+                </ol>
+            </div>
+          </div>
+        </div>
+      <!--/noindex-->
+
+<!-- 右侧边栏结束 --> 
+    </div>
+</aside>
+
+
+        
+      </div>
+    </main>
+
+<!-- 页面最下方的描述 -->
+
+<!-- <footer id="footer" class="footer">
+    <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <span class="with-love" id="animate">
+            <i class="fa fa-user"></i>
+        </span>
+        <span class="author" itemprop="copyrightHolder">Lianm</span>
+        </div>
+        <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+        <span class="post-meta-divider">|</span>
+        <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+    </div>
+</footer> -->
+
+<!-- 返回顶部 -->
+<div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>        
+</div>
+      
+</div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/assets/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+  <script src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/assets/lib/three/three.min.js"></script>
+  <script src="/assets/lib/three/three-waves.min.js"></script>
+  <script src="/assets/js/src/utils.js?v=7.0.0"></script>
+  <script src="/assets/js/src/motion.js?v=7.0.0"></script>
+  <script src="/assets/js/src/schemes/muse.js?v=7.0.0"></script>
+  <script src="/assets/js/src/scrollspy.js?v=7.0.0"></script>
+  <script src="/assets/js/src/post-details.js?v=7.0.0"></script>
+  <script src="/assets/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<!-- github comment -->
+<!-- <style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'Ming-Lian',
+      repo: 'Gitment-repo',
+      
+      oauth: {
+      
+      
+        client_secret: '3dc34ff32bbb0ee876b487f13a800b08857e0a10',
+      
+        client_id: '0e14870b1fb232903713'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script> -->
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; 
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+</body>
+</html>
