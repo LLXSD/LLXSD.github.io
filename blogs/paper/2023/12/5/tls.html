@@ -183,6 +183,58 @@
     
 <div class="post-body" itemprop="articleBody">
 <!-- 文章内容开始 -->
+<p><strong>以下内容来自ChatGPT:</strong></p>
+<p>传输层安全协议（TLS，Transport Layer Security）是一种用于在网络上提供安全通信的协议。TLS是安全套接层（SSL，Secure Sockets Layer）的后续版本，广泛用于网络通信的加密。它通过在网络层和应用层之间提供加密保护，确保数据的隐私和完整性。以下是TLS协议的关键组成部分和工作原理：</p>
+<h2 id="关键特性">关键特性</h2>
+<ul>
+<li>
+<p>加密：TLS利用对称加密来保护传输的数据。对称密钥是在TLS握手过程中安全生成和交换的。</p>
+</li>
+<li>
+<p>身份验证：TLS通过使用数字证书来验证服务器（以及可选的客户端）的身份。这些证书通常由可信任的证书颁发机构（CA）签发。</p>
+</li>
+<li>
+<p>完整性：TLS使用消息摘要算法（如SHA-256）来确保数据在传输过程中未被篡改。</p>
+</li>
+</ul>
+<h2 id="工作原理">工作原理</h2>
+<p>TLS工作原理包括两个主要阶段：握手阶段和数据传输阶段。</p>
+<p><strong>握手阶段</strong></p>
+<ol>
+<li>
+<p>开始通信：客户端向服务器发送“ClientHello”消息，携带客户端支持的TLS版本、加密套件和随机数。</p>
+</li>
+<li>
+<p>服务器响应：服务器以“ServerHello”消息响应，选择一个客户端也支持的加密套件和TLS版本，并发送服务器的随机数。</p>
+</li>
+<li>
+<p>证书和密钥交换：</p>
+<ul>
+<li>服务器发送其证书给客户端进行验证。</li>
+<li>服务器还可能请求客户端的证书（客户端身份验证）。</li>
+<li>服务器发送“ServerKeyExchange”消息，包含用于密钥交换的信息。</li>
+</ul>
+</li>
+<li>
+<p>密钥生成：客户端和服务器利用交换的随机数和其他参数生成对称加密的会话密钥。</p>
+</li>
+<li>
+<p>握手完成：双方发送“Finished”消息，确认握手过程完成。</p>
+</li>
+</ol>
+<p><strong>数据传输阶段</strong></p>
+<ul>
+<li>
+<p>使用协商的密钥和加密算法加密数据。</p>
+</li>
+<li>
+<p>对每条消息进行加密和摘要计算，以确保数据的机密性和完整性。</p>
+</li>
+</ul>
+<h2 id="版本">版本</h2>
+<p>TLS 1.0、1.1、1.2和1.3是主要版本，其中TLS 1.3是最新版本，提供了更强的安全性和更高的效率。</p>
+<h2 id="应用">应用</h2>
+<p>TLS被广泛应用于Web浏览器和服务器的HTTPS连接，邮件传输、即时通讯和许多其他类型的数据传输。</p>
 
 <!-- 文章内容最后 -->
 </div>
@@ -248,38 +300,26 @@
             <div class="post-toc-content">
                 <ol class="nav">
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#summary">
-                            <span class="nav-text"><SUMMARY</SUMMary></span>
+                        <a class="nav-link" href="#关键特性">
+                            <span class="nav-text">关键特性</span>
                         </a>
                     </li>
                     
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#experiment">
-                            <span class="nav-text">EXPERIMENT</span>
+                        <a class="nav-link" href="#工作原理">
+                            <span class="nav-text">工作原理</span>
                         </a>
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#obtaining">
-                            <span class="nav-text">OBTAINING SATELLITE ALLOCATIONS</span>
+                        <a class="nav-link" href="#版本">
+                            <span class="nav-text">版本</span>
                         </a>
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#discussion">
-                            <span class="nav-text">DISCUSSION OF FACTORS AFFECTING STARLINK'S GLOBAL SCHEDULER DECISIONS</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#modeling">
-                            <span class="nav-text">MODELING</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#thinking">
-                            <span class="nav-text">THINKING</span>
+                        <a class="nav-link" href="#应用">
+                            <span class="nav-text">应用</span>
                         </a>
                     </li>
                 </ol>
