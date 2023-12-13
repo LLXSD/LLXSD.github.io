@@ -2,7 +2,7 @@
 # 📝 Publications 
 
 ## 🛰️ Satellite Network 
-- ``NSDI 2024`` [Democratizing Direct-to-Cell Low Earth Orbit Satellite Networks](https://www.usenix.org/conference/nsdi24), <u>Lixin Liu</u>, Yuanjie Li, Hewu Li, Jiabo Yang, Wei Liu, Jingyi Lan, Yufeng Wang, Jiarui Li, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai.
+- ``NSDI 2024`` [Democratizing Direct-to-Cell Low Earth Orbit Satellite Networks](https://www.usenix.org/conference/nsdi24), <u>**Lixin Liu**</u>, Yuanjie Li, Hewu Li, Jiabo Yang, Wei Liu, Jingyi Lan, Yufeng Wang, Jiarui Li, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai.
 
 - ``MobiCom 2024`` [Stable hierarchical routing for operational satellite networks](https://www.sigmobile.org/mobicom/2024/), Yuanjie Li, **Lixin Liu**, Hewu Li, Wei Liu, Yimei Chen, Wei Zhao, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai.
 
