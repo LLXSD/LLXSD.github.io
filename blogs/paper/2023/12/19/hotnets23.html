@@ -211,7 +211,7 @@
 <li>Mitigation Planner: 此LLM代理根据批准的假设及其相应程序制定了详细的缓解计划。它生成一个step-by-step计划，供operator遵循，包括任何必要的配置更改或系统更新。然后，operator可以执行计划来缓解事件。</li>
 </ol>
 <p>The Hypothesis Former generates hypotheses, the Hypothesis Tester verifies them, and the Mitigation Planner creates a detailed plan for the operator to execute.</p>
-<h1>What do LLMs need to Synthesize Correct Router Configurations?</h1>
+<h1 id="What do LLMs need to Synthesize Correct Router Configurations">What do LLMs need to Synthesize Correct Router Configurations?</h1>
 <p><em>Rajdeep Mondal, Alan Tang, Ryan Beckett, Todd Millstein, George Varghese [UCLA, Microsoft Research]</em></p>
 <p>文章研究了大语言模型(例如，GPT4)是否可以合成正确的路由器配置以减少人工工作。文章发现GPT-4本身工作非常糟糕，其产生有希望的草案配置，但在拓扑，语法和语义方面存在严重错误。
 文章提出Verified Prompt Programming，将GPT-4与验证器结合起来，并使用来自验证器的本地化反馈来自动纠正错误。验证需要规范和可操作的本地化反馈才能有效。
@@ -275,7 +275,7 @@
 <p>使用大型语言模型推动计算机网络教育和研究：通过与大型语言模型互动，学生可以获得在计算机网络和人工智能方面的职业技能。此外，这个过程有助于学生发现网络研究中的创新机会，从而提高同行评审过程的质量。</p>
 </li>
 </ol>
-<h1 id="PROSPER: Extracting Protocol Specifications Using Large Language Models">PROSPER: Extracting Protocol Specifications Using Large Language Models</h1>
+<h1 id="PROSPER Extracting Protocol Specifications Using Large Language Models">PROSPER: Extracting Protocol Specifications Using Large Language Models</h1>
 <p><em>Prakhar Sharma, Vinod Yegneswaran [SRI International]</em></p>
 <p>本文主要介绍了一种名为PROSPER的框架，利用大型语言模型（LLMs）从RFC（请求评论）文档中自动理解和提取协议规范。文章首先介绍了RFC的复杂性和文本中存在的局限性，然后详细描述了PROSPER框架的构建和应用，包括代表性RFC的选择、工程化提示过程、文本和非自然语言文本图的提取等。最后，文章还提出了未来工作的方向，包括将PROSPER框架扩展到端到端自动化和将提取的输出应用于多个下游任务。</p>
 <p><img src="/images/blogs/paper/PROSPER-overview.png" alt="图片" /></p>
@@ -417,7 +417,7 @@
 <li>提出一个通用框架，将在线和离线的用户反馈相结合，以获取关于用户体验的有价值见解；</li>
 <li>该服务可以帮助网络和网络服务提供商消费深入的用户体验洞察，从而改进网络性能和用户参与度。</li>
 </ul>
-<h1 id="Green With Envy: Unfair Congestion Control Algorithms Can Be More Energy Efficient">Green With Envy: Unfair Congestion Control Algorithms Can Be More Energy Efficient</h1>
+<h1 id="Green With Envy Unfair Congestion Control Algorithms Can Be More Energy Efficient">Green With Envy: Unfair Congestion Control Algorithms Can Be More Energy Efficient</h1>
 <p><em>Serhat Arslan, Sundararajan Renganathan, Bruce Spang [Stanford University]</em></p>
 <p>本文主要研究了拥塞控制算法对能源消耗的影响。研究者通过实验测量了不同拥塞控制算法在实验室环境下的能源消耗，并发现不同的算法行为对主机的能源消耗有显著影响。研究结果表明，增加最大传输单元（MTU）、减少流完成时间（FCT）和改变拥塞控制算法都可以降低能源消耗。此外，文章还探讨了网络设计和操作的其他方面对能源消耗的影响，并提出了未来进一步研究的方向。</p>
 <h4>不同拥塞控制算法是如何影响主机的能源消耗的？</h4>
@@ -519,7 +519,7 @@
 <blockquote>
 <p>This architecture of service meshes has significant downsides. Depending on the configuration, it can <strong>increase message processing latency</strong> by up to 2.7-7.1x and <strong>CPU usage</strong> by up to 1.6-7x [ 3 , 9, 12, 52, 66]. <strong>Layering</strong> also hides or obscures information, which makes it hard to implement applicationspecific network policies (e.g., choosing replicas based on information in the application's RPC) [ 4 , 14]. Finally, being general, service mesh implementations are large and complex, so it is almost impossible to accelerate them via programmable kernel, NICs, and switches [28, 49, 50, 60].</p>
 </blockquote>
-<h1 id="Users are Closer than they Appear: Protecting User Location from WiFi APs [HotMobile'23]">Users are Closer than they Appear: Protecting User Location from WiFi APs [HotMobile'23]</h1>
+<h1 id="Users are Closer than they Appear: Protecting User Location from WiFi APs">Users are Closer than they Appear: Protecting User Location from WiFi APs [HotMobile'23]</h1>
 <p><em>Roshan Ayyalasomayajula, Aditya Arun, Wei Sun, and Dinesh Bharadia [UC San Diego]</em></p>
 <p>本文主要介绍了一种名为MIRAGE的技术，旨在保护用户的位置信息免受WiFi接入点（AP）的侵犯。该技术通过使用波束成形和延迟等方法，使反射路径看起来像是直接路径，从而混淆攻击者对用户位置的观测。文章讨论了MIRAGE的实现和应用，并提出了一些未来的研究方向。</p>
 <h4>MIRAGE技术如何实现用户位置的混淆？具体的原理是什么？</h4>
@@ -548,7 +548,7 @@
 <li>通过维持直接路径和保持信号的SNR，MIRAGE技术可以在保护用户隐私的同时确保通信质量。</li>
 <li>当需要更高级别的隐私保护时，可以使用更长的延迟来混淆用户的位置，但这可能会导致通信延迟增加。在这种情况下，可以权衡隐私保护和通信性能之间的权重，以找到最佳平衡点。</li>
 </ul>
-<h1 id="TagAlong: Free, Wide-Area Data-Muling and Services [HotMobile'23]">TagAlong: Free, Wide-Area Data-Muling and Services [HotMobile'23]</h1>
+<h1 id="TagAlong Free, Wide-Area Data-Muling and Services">TagAlong: Free, Wide-Area Data-Muling and Services [HotMobile'23]</h1>
 <p><em>Alex Bellon, Alex Yen, Alex Yen [UC San Diego]</em></p>
 <p>我们演示了如何利用 Apple 的 Find My 协议，最著名的是 AirTag 的底层协议，用于任意数据记录和位置服务。这提供了一个新的“无基础设施”部署，其中具有频繁人类活动的区域可以利用这种零成本回程网络。虽然存在严重的限制（例如，没有确认通道回发送设备），但基于 My 的网络仍然可以是一个可靠的回程，具有足够的传输冗余和部署上下文的知识。为此，我们开发了 TagAlong，这是一种在 Find My 网络上可扩展、高效的数据传输协议。我们实现了一个概念验证，并展示了高达 12.5 字节/秒的吞吐量，高达 97% 的数据接收率。</p>
 
@@ -629,7 +629,7 @@
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#What do LLMs need to Synthesize Correct Router Configurations?">
+                        <a class="nav-link" href="#What do LLMs need to Synthesize Correct Router Configurations">
                             <span class="nav-text">What do LLMs need to Synthesize Correct Router Configurations?</span>
                         </a>
                     </li>
@@ -641,7 +641,7 @@
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#PROSPER: Extracting Protocol Specifications Using Large Language Models">
+                        <a class="nav-link" href="#PROSPER Extracting Protocol Specifications Using Large Language Models">
                             <span class="nav-text">PROSPER: Extracting Protocol Specifications Using Large Language Models</span>
                         </a>
                     </li>
@@ -659,7 +659,7 @@
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#Green With Envy: Unfair Congestion Control Algorithms Can Be More Energy Efficient">
+                        <a class="nav-link" href="#Green With Envy Unfair Congestion Control Algorithms Can Be More Energy Efficient">
                             <span class="nav-text">Green With Envy: Unfair Congestion Control Algorithms Can Be More Energy Efficient</span>
                         </a>
                     </li>
@@ -677,13 +677,13 @@
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#Users are Closer than they Appear: Protecting User Location from WiFi APs [HotMobile'23]">
+                        <a class="nav-link" href="#Users are Closer than they Appear: Protecting User Location from WiFi APs">
                             <span class="nav-text">Users are Closer than they Appear: Protecting User Location from WiFi APs</span>
                         </a>
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#TagAlong: Free, Wide-Area Data-Muling and Services [HotMobile'23]">
+                        <a class="nav-link" href="#TagAlong: Free, Wide-Area Data-Muling and Services">
                             <span class="nav-text">TagAlong: Free, Wide-Area Data-Muling and Services</span>
                         </a>
                     </li>
