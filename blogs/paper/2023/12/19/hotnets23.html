@@ -188,7 +188,7 @@
 <h4>LLMs在网络管理中的实际应用效果如何？</h4>
 <p>LLMs在网络管理中的实际应用效果表现良好，能够提高代码质量和网络管理效率。根据研究，使用LLMs生成的代码在网络流量分析和网络生命周期管理任务上的平均正确性分别达到了63%和56%（使用GPT-4模型分别达到了88%和78%），明显优于仅使用图数据输入到LLMs的基线方法（平均正确性为23%）。这表明使用LLMs生成的代码在网络管理任务中具有较高的可行性。</p>
 <p>此外，通过采用互补程序合成方法（如pass@k和self-debug），可以进一步提高代码质量。在使用Bard模型和三个失败的网络生命周期查询的情况下，pass@k和self-debug方法分别提高了100%和67%的代码质量。这表明，应用互补技术具有很大潜力，可以进一步提高网络管理应用中LLM生成代码的准确性。</p>
-<h1 id="A Holistic View of AI-driven Network Incident Management">A Holistic View of AI-driven Network Incident Management</h1>
+<h1 id="AHolistic">A Holistic View of AI-driven Network Incident Management</h1>
 <p><em>Pouya Hamadanian†, Behnaz Arzani§, Sadjad Fouladi§, Siva Kesava Reddy Kakarla§, Rodrigo Fonseca, Denizcan Billor∥ , Ahmad Cheema∥ , Edet Nkposong∥ , <strong>Ranveer Chandra</strong>§ [†MIT, §Microsoft Research, Azure Systems Research, ∥ Microsoft]</em></p>
 <p>文章提出了一个整体框架来构建用于事件管理的 AI 助手，并讨论实现它所需的未来研究的几种途径。作者在设计此类助手时彻底分析了社区应该考虑的基本要求。文章基于与大型公共云提供商的运营商及其在事件管理中的先前经验的讨论，并尝试通过各种形式的自动化来改善事件管理体验。</p>
 <h4>设计用于事件管理的人工智能助手时需要考虑哪些基本要求？</h4>
@@ -211,7 +211,7 @@
 <li>Mitigation Planner: 此LLM代理根据批准的假设及其相应程序制定了详细的缓解计划。它生成一个step-by-step计划，供operator遵循，包括任何必要的配置更改或系统更新。然后，operator可以执行计划来缓解事件。</li>
 </ol>
 <p>The Hypothesis Former generates hypotheses, the Hypothesis Tester verifies them, and the Mitigation Planner creates a detailed plan for the operator to execute.</p>
-<h1 id="What do LLMs need to Synthesize Correct Router Configurations">What do LLMs need to Synthesize Correct Router Configurations?</h1>
+<h1 id="WhatdoLLMs">What do LLMs need to Synthesize Correct Router Configurations?</h1>
 <p><em>Rajdeep Mondal, Alan Tang, Ryan Beckett, Todd Millstein, George Varghese [UCLA, Microsoft Research]</em></p>
 <p>文章研究了大语言模型(例如，GPT4)是否可以合成正确的路由器配置以减少人工工作。文章发现GPT-4本身工作非常糟糕，其产生有希望的草案配置，但在拓扑，语法和语义方面存在严重错误。
 文章提出Verified Prompt Programming，将GPT-4与验证器结合起来，并使用来自验证器的本地化反馈来自动纠正错误。验证需要规范和可操作的本地化反馈才能有效。
@@ -231,7 +231,7 @@
 验证者提供本地化反馈，从而能够自动纠正错误。验证者的集成需要规范和可操作的本地化反馈以确保有效性。虽然人工输入仍然是必要的，但该方法显着减少了所涉及的人工工作量。例如，在一项实验中，Juniper 转换的杠杆率为 10 倍，实施无中转策略的杠杆率为 6 倍。</p>
 <h4>优化后的模型在生成正确的路由器配置方面表现如何？</h4>
 <p>该系统实现了更高的杠杆率，这意味着与自动提示的数量相比，需要更少的人工提示。该模型在更简单的用例中显示出合理的有效性，并且模块化验证对于向LLM提供可操作的反馈至关重要。然而，复杂的用例仍然需要进一步的测试和人工干预，因为模型有时会遇到复杂的细节和全局规范。</p>
-<h1 id="Toward Reproducing Network Research Results Using Large Language Models">Toward Reproducing Network Research Results Using Large Language Models</h1>
+<h1 id="TowardReproducing">Toward Reproducing Network Research Results Using Large Language Models</h1>
 <p><em>Qiao Xiang∗, Yuling Lin∗, Mingjun Fang∗, Bang Huang∗, Siyong Huang∗, Ridi Wen∗, Franck Le†, Linghe Kong♦, Jiwu Shu∗◦
 [∗Xiamen University, †IBM Research, ♦ Shanghai Jiao Tong University, ◦Minjiang University]</em></p>
 <p>本文主要讨论了利用大型语言模型（LLM）来实现网络研究结果的复现。再现研究结果对网络社区很重要，当前的最佳实践通常采用：（1）寻找公开可用的原型； (2) 联系作者以获得私有原型； (3) 根据出版物的描述手动实施原型。然而，大多数已发表的网络研究没有公共原型，私人研究很难获得。因此，大多数重现的努力都花在基于出版物的手动实现上，这既费时又容易出错。
@@ -622,25 +622,25 @@
                         </a>
                     </li>
                     
-                    <!-- <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#A Holistic View of AI-driven Network Incident Management">
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#AHolistic">
                             <span class="nav-text">A Holistic View of AI-driven Network Incident Management</span>
                         </a>
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#What do LLMs need to Synthesize Correct Router Configurations">
+                        <a class="nav-link" href="#WhatdoLLMs">
                             <span class="nav-text">What do LLMs need to Synthesize Correct Router Configurations?</span>
                         </a>
                     </li>
 
                     <li class="nav-item nav-level-1">
-                        <a class="nav-link" href="#Toward Reproducing Network Research Results Using Large Language Models">
+                        <a class="nav-link" href="#TowardReproducing">
                             <span class="nav-text">Toward Reproducing Network Research Results Using Large Language Models</span>
                         </a>
                     </li>
 
-                    <li class="nav-item nav-level-1">
+                    <!-- <li class="nav-item nav-level-1">
                         <a class="nav-link" href="#PROSPER Extracting Protocol Specifications Using Large Language Models">
                             <span class="nav-text">PROSPER: Extracting Protocol Specifications Using Large Language Models</span>
                         </a>
