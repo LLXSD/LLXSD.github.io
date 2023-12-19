@@ -189,7 +189,7 @@
 <p>LLMs在网络管理中的实际应用效果表现良好，能够提高代码质量和网络管理效率。根据研究，使用LLMs生成的代码在网络流量分析和网络生命周期管理任务上的平均正确性分别达到了63%和56%（使用GPT-4模型分别达到了88%和78%），明显优于仅使用图数据输入到LLMs的基线方法（平均正确性为23%）。这表明使用LLMs生成的代码在网络管理任务中具有较高的可行性。</p>
 <p>此外，通过采用互补程序合成方法（如pass@k和self-debug），可以进一步提高代码质量。在使用Bard模型和三个失败的网络生命周期查询的情况下，pass@k和self-debug方法分别提高了100%和67%的代码质量。这表明，应用互补技术具有很大潜力，可以进一步提高网络管理应用中LLM生成代码的准确性。</p>
 <h1 id="A Holistic View of AI-driven Network Incident Management">A Holistic View of AI-driven Network Incident Management</h1>
-<p>Pouya Hamadanian†, Behnaz Arzani§, Sadjad Fouladi§, Siva Kesava Reddy Kakarla§, Rodrigo Fonseca, Denizcan Billor∥ , Ahmad Cheema∥ , Edet Nkposong∥ , <strong>Ranveer Chandra</strong>§ [†MIT, §Microsoft Research, Azure Systems Research, ∥ Microsoft]</p>
+<p><em>Pouya Hamadanian†, Behnaz Arzani§, Sadjad Fouladi§, Siva Kesava Reddy Kakarla§, Rodrigo Fonseca, Denizcan Billor∥ , Ahmad Cheema∥ , Edet Nkposong∥ , <strong>Ranveer Chandra</strong>§ [†MIT, §Microsoft Research, Azure Systems Research, ∥ Microsoft]</em></p>
 <p>文章提出了一个整体框架来构建用于事件管理的 AI 助手，并讨论实现它所需的未来研究的几种途径。作者在设计此类助手时彻底分析了社区应该考虑的基本要求。文章基于与大型公共云提供商的运营商及其在事件管理中的先前经验的讨论，并尝试通过各种形式的自动化来改善事件管理体验。</p>
 <h4>设计用于事件管理的人工智能助手时需要考虑哪些基本要求？</h4>
 <ol>
@@ -212,7 +212,7 @@
 </ol>
 <p>The Hypothesis Former generates hypotheses, the Hypothesis Tester verifies them, and the Mitigation Planner creates a detailed plan for the operator to execute.</p>
 <h1>What do LLMs need to Synthesize Correct Router Configurations?</h1>
-<p>Rajdeep Mondal, Alan Tang, Ryan Beckett, Todd Millstein, George Varghese [UCLA, Microsoft Research]</p>
+<p><em>Rajdeep Mondal, Alan Tang, Ryan Beckett, Todd Millstein, George Varghese [UCLA, Microsoft Research]</em></p>
 <p>文章研究了大语言模型(例如，GPT4)是否可以合成正确的路由器配置以减少人工工作。文章发现GPT-4本身工作非常糟糕，其产生有希望的草案配置，但在拓扑，语法和语义方面存在严重错误。
 文章提出Verified Prompt Programming，将GPT-4与验证器结合起来，并使用来自验证器的本地化反馈来自动纠正错误。验证需要规范和可操作的本地化反馈才能有效。
 文章展示了两个用例的结果:在单个路由器上从Cisco转换到Juniper配置，以及在多个路由器上实现无传输策略。虽然仍然需要人工输入，但如果将leverage定义为自动提示的数量与人工提示的数量之比，实验显示，Juniper翻译的leverage为10倍，实现无传输策略的leverage为6倍，以经过验证的配置结束。</p>
@@ -232,8 +232,8 @@
 <h4>优化后的模型在生成正确的路由器配置方面表现如何？</h4>
 <p>该系统实现了更高的杠杆率，这意味着与自动提示的数量相比，需要更少的人工提示。该模型在更简单的用例中显示出合理的有效性，并且模块化验证对于向LLM提供可操作的反馈至关重要。然而，复杂的用例仍然需要进一步的测试和人工干预，因为模型有时会遇到复杂的细节和全局规范。</p>
 <h1 id="Toward Reproducing Network Research Results Using Large Language Models">Toward Reproducing Network Research Results Using Large Language Models</h1>
-<p>Qiao Xiang∗, Yuling Lin∗, Mingjun Fang∗, Bang Huang∗, Siyong Huang∗, Ridi Wen∗, Franck Le†, Linghe Kong♦, Jiwu Shu∗◦
-[∗Xiamen University, †IBM Research, ♦ Shanghai Jiao Tong University, ◦Minjiang University]</p>
+<p><em>Qiao Xiang∗, Yuling Lin∗, Mingjun Fang∗, Bang Huang∗, Siyong Huang∗, Ridi Wen∗, Franck Le†, Linghe Kong♦, Jiwu Shu∗◦
+[∗Xiamen University, †IBM Research, ♦ Shanghai Jiao Tong University, ◦Minjiang University]</em></p>
 <p>本文主要讨论了利用大型语言模型（LLM）来实现网络研究结果的复现。再现研究结果对网络社区很重要，当前的最佳实践通常采用：（1）寻找公开可用的原型； (2) 联系作者以获得私有原型； (3) 根据出版物的描述手动实施原型。然而，大多数已发表的网络研究没有公共原型，私人研究很难获得。因此，大多数重现的努力都花在基于出版物的手动实现上，这既费时又容易出错。
 本文首先通过小规模实验证明了它的可行性，四个具有基本网络知识的学生通过prompt engineering ChatGPT 重现在突出会议和期刊上发布的不同网络系统。
 文章接着提出了改进网络研究复现效率的方法，并讨论了处理网络研究中缺失细节和漏洞的策略。最后，文章还提出了构建针对网络研究复现的领域特定LLM的想法。</p>
@@ -276,7 +276,7 @@
 </li>
 </ol>
 <h1 id="PROSPER: Extracting Protocol Specifications Using Large Language Models">PROSPER: Extracting Protocol Specifications Using Large Language Models</h1>
-<p>Prakhar Sharma, Vinod Yegneswaran [SRI International]</p>
+<p><em>Prakhar Sharma, Vinod Yegneswaran [SRI International]</em></p>
 <p>本文主要介绍了一种名为PROSPER的框架，利用大型语言模型（LLMs）从RFC（请求评论）文档中自动理解和提取协议规范。文章首先介绍了RFC的复杂性和文本中存在的局限性，然后详细描述了PROSPER框架的构建和应用，包括代表性RFC的选择、工程化提示过程、文本和非自然语言文本图的提取等。最后，文章还提出了未来工作的方向，包括将PROSPER框架扩展到端到端自动化和将提取的输出应用于多个下游任务。</p>
 <p><img src="/images/blogs/paper/PROSPER-overview.png" alt="图片" /></p>
 <h4>在自动理解RFC文档中存在的挑战有哪些？PROSPER框架是如何应对这些挑战的？</h4>
@@ -326,7 +326,7 @@
 <li>缺乏定制基准数据集：目前没有针对 RFC 特定领域的标准化数据集。因此，评估输出的准确性和覆盖范围主要依赖人工。PROSPER 准备了一个类似 APE 的小型数据集用于提示的前向生成，但可以进一步改进。</li>
 </ul>
 <h1 id="Towards Integrating Formal Methods into ML-Based Systems for Networking">Towards Integrating Formal Methods into ML-Based Systems for Networking</h1>
-<p>Fengchen Gong, Divya Raghunathan, Aarti Gupta, Maria Apostolaki [Princeton University]</p>
+<p><em>Fengchen Gong, Divya Raghunathan, Aarti Gupta, Maria Apostolaki [Princeton University]</em></p>
 <p>由于其适应性和可扩展性，机器学习(ML)在网络社区中获得了显著的发展势头。然而，ML模型仍然可以产生与知识相矛盾的输出，即已建立的网络规则和原则。另一方面，形式方法(FM)使用基于知识的严格数学推理，但缺乏可扩展性。
 为了充分利用这两种方法的互补优势，文章提倡将基于知识的FM集成到基于ML的网络问题系统中。通过队列长度预测案例，文章展示了单独使用ML模型或FM的好处和局限性。文章发现，在ML模型的训练和推理中加入FM不仅产生更可靠的结果，而且在各种下游任务中也有更好的性能。作者希望论文能够激发基于FM和基于ML的网络方法的更紧密集成，促进更健壮和可靠系统的开发。</p>
 <h4>在网络中集成基于 FM 和 ML 面临的挑战和限制？</h4>
@@ -358,8 +358,8 @@
 <li>Generating Synthetic Traces：在生成合成轨迹时，可以使用规则形式的知识将现有或合成轨迹转换为新轨迹，这可以从 FM 和 ML 的结合中受益。</li>
 </ol>
 <h1 id="Don't Forget the User: It's Time to Rethink Network Measurements">Don't Forget the User: It's Time to Rethink Network Measurements</h1>
-<p>Aryan Taneja, Rahul Bothra, <strong>Debopam Bhattacherjee</strong>, Rohan Gandhi, Venkata N. Padmanabhan, Ranjita Bhagwan, Nagarajan Natarajan, Saikat Guha, Ross Cutler
-[Microsoft Research India, UIUC, Microsoft]</p>
+<p><em>Aryan Taneja, Rahul Bothra, <strong>Debopam Bhattacherjee</strong>, Rohan Gandhi, Venkata N. Padmanabhan, Ranjita Bhagwan, Nagarajan Natarajan, Saikat Guha, Ross Cutler
+[Microsoft Research India, UIUC, Microsoft]</em></p>
 <p>本文的主要内容是关于重新思考网络测量的重要性，强调了用户的角色以及利用用户的反馈来改进网络测量的方法。文章首先介绍了利用社交媒体上的用户情感来测量网络对应用性能和用户体验的影响，并列举了一些测量方法和先前的研究成果。接着讨论了网络测量的局限性，包括测量覆盖范围有限、需要专门的设备和资源等问题。然后，文章提出了使用非侵入性策略来量化网络性能对用户参与度的影响，并找出用户行为和明确反馈之间的相关性。最后，文章探讨了网络测量的目标和限制，并介绍了一些未来的研究方向。</p>
 <h4>如何利用用户的社交媒体情感来测量网络对应用性能和用户体验的影响？</h4>
 <ol>
@@ -418,7 +418,7 @@
 <li>该服务可以帮助网络和网络服务提供商消费深入的用户体验洞察，从而改进网络性能和用户参与度。</li>
 </ul>
 <h1 id="Green With Envy: Unfair Congestion Control Algorithms Can Be More Energy Efficient">Green With Envy: Unfair Congestion Control Algorithms Can Be More Energy Efficient</h1>
-<p>Serhat Arslan, Sundararajan Renganathan, Bruce Spang [Stanford University]</p>
+<p><em>Serhat Arslan, Sundararajan Renganathan, Bruce Spang [Stanford University]</em></p>
 <p>本文主要研究了拥塞控制算法对能源消耗的影响。研究者通过实验测量了不同拥塞控制算法在实验室环境下的能源消耗，并发现不同的算法行为对主机的能源消耗有显著影响。研究结果表明，增加最大传输单元（MTU）、减少流完成时间（FCT）和改变拥塞控制算法都可以降低能源消耗。此外，文章还探讨了网络设计和操作的其他方面对能源消耗的影响，并提出了未来进一步研究的方向。</p>
 <h4>不同拥塞控制算法是如何影响主机的能源消耗的？</h4>
 <ol>
@@ -439,8 +439,8 @@
 研究表明，不公平的带宽分配可以提高能源效率。通过允许一些流更快地完成，从而让网络资源空闲并降低能源消耗。</li>
 </ol>
 <h1 id="Simplifying Cloud Management with Cloudless Computing">Simplifying Cloud Management with Cloudless Computing</h1>
-<p>Yiming Qiu, Patrick Tser Jern Kon, Jiarong Xing†, Yibo Huang, Hongyi Liu† Xinyu Wang, Peng Huang, Mosharaf Chowdhury, Ang Chen
-[University of Michigan,Rice University]</p>
+<p><em>Yiming Qiu, Patrick Tser Jern Kon, Jiarong Xing†, Yibo Huang, Hongyi Liu† Xinyu Wang, Peng Huang, Mosharaf Chowdhury, Ang Chen
+[University of Michigan,Rice University]</em></p>
 <p>本文的主要内容是介绍了一种名为&quot;Cloudless Computing&quot;的理念，旨在简化云计算基础设施的管理。作者认为目前的基础设施即代码（IaC）框架存在一些限制和不足，需要重新设计和完善。文章提出了几个关键问题，包括加速IaC部署、增量更新、以及基于策略的控制。作者认为通过解决这些问题，可以提高云基础设施管理的效率和可靠性。</p>
 <blockquote>
 <p>Like serverless computing, which aims to reduce the burden of cloud users in managing server VMs, cloudless computing aims to support cloud infrastructure management on behalf of users by handling &quot;cloudy&quot; management tasks in a principled manner. This will reduce the friction in managing cloud-based infrastructures, so that developers and operators can work in a concerted fashion for better control over their infrastructure.</p>
@@ -484,8 +484,8 @@
 <li>持续优化：用户应定期评估其策略的性能并进行优化，以适应不断变化的需求和场景。这可以通过收集相关指标并分析策略执行的效果来实现。</li>
 </ol>
 <h1 id="Application Defined Networks">Application Defined Networks</h1>
-<p>Xiangfeng Zhu1, Weixin Deng1, Banruo Liu2, Jingrong Chen3, Yongji Wu3, Thomas Anderson1, Arvind Krishnamurthy1, Ratul Mahajan1, Danyang Zhuo3
-[University of Washington, Tsinghua University, Duke University]</p>
+<p><em>Xiangfeng Zhu1, Weixin Deng1, Banruo Liu2, Jingrong Chen3, Yongji Wu3, Thomas Anderson1, Arvind Krishnamurthy1, Ratul Mahajan1, Danyang Zhuo3
+[University of Washington, Tsinghua University, Duke University]</em></p>
 <p>本文主要介绍了应用定义网络（ADN）的概念，并围绕实现ADN提出了一系列关键的研究问题。文章讨论了高级规范如何在各种硬件和软件平台上进行高效的分布式实现，包括低级代码和数据包头设计；DSL应该提供什么样的抽象来指定RPC处理；以及如何确定网络处理发生的位置，并根据工作负载进行扩展/折叠，而不会影响应用程序。通过实现原型，作者展示了ADN可以显著降低端到端的RPC延迟，增加RPC吞吐量，并减少代码量。</p>
 <h4>ADN的核心思路是什么？包括哪些功能模块？每个功能模块分别承担怎样的功能？模块间如何交互？</h4>
 <p>ADN（Application Defined Networks）的核心思路是让应用程序定义其所需的网络行为，而不是依赖通用网络抽象。ADN包括以下功能模块：</p>
@@ -520,7 +520,7 @@
 <p>This architecture of service meshes has significant downsides. Depending on the configuration, it can <strong>increase message processing latency</strong> by up to 2.7-7.1x and <strong>CPU usage</strong> by up to 1.6-7x [ 3 , 9, 12, 52, 66]. <strong>Layering</strong> also hides or obscures information, which makes it hard to implement applicationspecific network policies (e.g., choosing replicas based on information in the application's RPC) [ 4 , 14]. Finally, being general, service mesh implementations are large and complex, so it is almost impossible to accelerate them via programmable kernel, NICs, and switches [28, 49, 50, 60].</p>
 </blockquote>
 <h1 id="Users are Closer than they Appear: Protecting User Location from WiFi APs [HotMobile'23]">Users are Closer than they Appear: Protecting User Location from WiFi APs [HotMobile'23]</h1>
-<p>Roshan Ayyalasomayajula, Aditya Arun, Wei Sun, and Dinesh Bharadia [UC San Diego]</p>
+<p><em>Roshan Ayyalasomayajula, Aditya Arun, Wei Sun, and Dinesh Bharadia [UC San Diego]</em></p>
 <p>本文主要介绍了一种名为MIRAGE的技术，旨在保护用户的位置信息免受WiFi接入点（AP）的侵犯。该技术通过使用波束成形和延迟等方法，使反射路径看起来像是直接路径，从而混淆攻击者对用户位置的观测。文章讨论了MIRAGE的实现和应用，并提出了一些未来的研究方向。</p>
 <h4>MIRAGE技术如何实现用户位置的混淆？具体的原理是什么？</h4>
 <p>MIRAGE技术通过以下方法实现用户位置的混淆：</p>
@@ -549,7 +549,7 @@
 <li>当需要更高级别的隐私保护时，可以使用更长的延迟来混淆用户的位置，但这可能会导致通信延迟增加。在这种情况下，可以权衡隐私保护和通信性能之间的权重，以找到最佳平衡点。</li>
 </ul>
 <h1 id="TagAlong: Free, Wide-Area Data-Muling and Services [HotMobile'23]">TagAlong: Free, Wide-Area Data-Muling and Services [HotMobile'23]</h1>
-<p>Alex Bellon, Alex Yen, Alex Yen [UC San Diego]</p>
+<p><em>Alex Bellon, Alex Yen, Alex Yen [UC San Diego]</em></p>
 <p>我们演示了如何利用 Apple 的 Find My 协议，最著名的是 AirTag 的底层协议，用于任意数据记录和位置服务。这提供了一个新的“无基础设施”部署，其中具有频繁人类活动的区域可以利用这种零成本回程网络。虽然存在严重的限制（例如，没有确认通道回发送设备），但基于 My 的网络仍然可以是一个可靠的回程，具有足够的传输冗余和部署上下文的知识。为此，我们开发了 TagAlong，这是一种在 Find My 网络上可扩展、高效的数据传输协议。我们实现了一个概念验证，并展示了高达 12.5 字节/秒的吞吐量，高达 97% 的数据接收率。</p>
 
 <!-- 文章内容最后 -->
