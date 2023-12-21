@@ -773,17 +773,16 @@
 
 </style>
 
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<!-- <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
 
 <script>
   function renderGitment() {
     var gitment = new Gitment({
-      id: window.location.pathname,
+      id: location.href,
       owner: 'LLXSD',
       repo: 'Gitment-repo',
   
       oauth: {
-      
         client_secret: 'd642a99d83c21e8bff511332c706a9fbe1738a49',
         client_id: '90fabc66c01226fd1693'
       }
