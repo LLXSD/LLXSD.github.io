@@ -592,14 +592,9 @@
 </div>
 
 <!-- github comments -->
-    <!-- <div class="comments" id="comments">
+    <div class="comments" id="comments">
         <div id="gitment-container"></div>
-    </div> -->
-
-<div id="like-section">
-    <button id="like-button">👍 Like</button>
-    <span id="like-count">0</span>
-</div>
+    </div>
 
 
 </div>
@@ -784,7 +779,7 @@
 <script>
   function renderGitment() {
     var gitment = new Gitment({
-      id: location.href,
+      id: window.location.pathname,
       owner: 'LLXSD',
       repo: 'Gitment-repo',
   
@@ -868,10 +863,6 @@ gitment.render('container')
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
-      document.getElementById('like-button').addEventListener('click', function() {
-        var likeCount = document.getElementById('like-count');
-        likeCount.innerText = parseInt(likeCount.innerText) + 1;
-      });
 
       $.ajax({
         url: path,
