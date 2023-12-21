@@ -868,7 +868,10 @@ gitment.render('container')
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
-      
+      document.getElementById('like-button').addEventListener('click', function() {
+        var likeCount = document.getElementById('like-count');
+        likeCount.innerText = parseInt(likeCount.innerText) + 1;
+      });
 
       $.ajax({
         url: path,
