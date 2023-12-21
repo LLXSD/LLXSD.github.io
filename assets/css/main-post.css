@@ -2968,3 +2968,7 @@ hr {
     text-align: center;
   }
 }
+
+#like-section, #comment-section {
+  margin-bottom: 20px;
+}
