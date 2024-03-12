@@ -12,3 +12,6 @@
 
 # 💻 Internships
 - *2021.06 - 2021.09*, Alibaba, Beijing.
+
+# 📇 CV
+[Lixin Liu's CV](/docs/Lixin%20Liu-CV.pdf)
