@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 
 <html class="theme-next mist use-motion" lang="zh-CN">
+
+<!-- body -->
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+
 
 <link rel="stylesheet" href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 <link rel="stylesheet" href="/assets/css/main-post.css?v=7.0.0">
@@ -33,15 +36,15 @@
   };
 </script>
 
-
 <script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
 </script>
 
-  <title>Lixin's Blog</title>
- 
+<!-- title -->
+<title> 5G-SPECTOR: An O-RAN Compliant Layer-3 Cellular Attack Detection Service</title>
+  
   <noscript>
   <style>
   .use-motion .motion-element,
@@ -66,28 +69,26 @@
   .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
-
 </head>
+
+<!-- body -->
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
+<!-- 可能是显示相关设置 -->
+<div class="container sidebar-position-left page-post-detail">
+<div class="headband"></div>
+<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="header-inner"><div class="site-brand-wrapper">
+    <div class="site-meta">
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Lixin's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+        <a href="/" class="brand" rel="start">
+            <span class="logo-line-before"><i></i></span>
+            <span class="site-title">Lixin's Blog</span>
+            <span class="logo-line-after"><i></i></span>
+        </a>
     </div>
-  </div>
+    </div>
 
   <div class="site-nav-toggle">
     <button aria-label="切换导航栏">
@@ -98,8 +99,8 @@
   </div>
 </div>
 
+<!-- 导航栏 -->
 <nav class="site-nav">
-  
     <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
             <a href="/blogs/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
@@ -111,320 +112,366 @@
         
         <li class="menu-item menu-item-categories">
             <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-        </li>   
+        </li>
+        
+        <!-- <li class="menu-item menu-item-archives">
+            <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+        </li> -->
+
+        <!-- <li class="menu-item menu-item-search">
+            <a href="javascript:;" class="popup-trigger">
+                <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li> -->
     </ul>
+
+<!-- <div class="site-search">   
+    <div class="popup search-popup local-search-popup">
+        <div class="local-search-header clearfix">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+            <div class="local-search-input-wrapper">
+                <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+            </div>
+        </div>
+        <div id="local-search-result"></div>
+    </div>
+</div>   -->
+
 </nav>
 
-
 </div>
-    </header>
-  <!-- <a href="https://github.com/Ming-Lian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a> -->
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-          <div id="content" class="content">
-
-<!-- section -->
-<section id="posts" class="posts-expand">
-
-<!-- 文章开始 -->
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  <div class="post-block">
+</header>
+<!-- 导航栏结束 -->
+    
+<main id="main" class="main">
+<div class="main-inner">
+<div class="content-wrap">
+    <div id="content" class="content">
+    <div id="posts" class="posts-expand">
+    <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/Bioinfo-ML-Club-7th/">
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Lixin's Blog">
     </span>
 
-    <!-- 标题 -->
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            <a href="/blogs/paper/2024/03/20/ndss24-5g-spector.html" class="post-title-link" itemprop="url">5G-SPECTOR: An O-RAN Compliant Layer-3 Cellular Attack Detection Service</a>
-        </h1>
-        
-        <!-- 发表时间 -->
+<!-- 页面内标题 -->
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"> 5G-SPECTOR: An O-RAN Compliant Layer-3 Cellular Attack Detection Service [NDSS 2024]</h1>
         <div class="post-meta">
-          <span class="post-time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <span class="post-time">
+                <span class="post-meta-item-icon">
+                    <i class="fa fa-calendar-o"></i>
+                </span>
                 <span class="post-meta-item-text">发表于</span>
-              <time title="创建时间：2019-09-03 20:23:08 / 修改时间：20:45:46" itemprop="dateCreated datePublished" datetime="2019-09-03T20:23:08+08:00">2024-03-20</time> 
-          </span>
-
-        <!-- 分类信息 -->
+                <time itemprop="dateCreated datePublished">2024-03-20</time>
+            </span>
             <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                    <i class="fa fa-folder-o"></i>
+                </span>
                 <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mobile-Network/" itemprop="url" rel="index"><span itemprop="name">Mobile Network</span></a></span>
             </span>
         </div>
-      </header>
-
-            <div class="post-body" itemprop="articleBody">  
-                <!-- 摘要   -->
-                    <p>文章提出了5G-SPECTOR，一种与O-RAN兼容的L3蜂窝攻击检测工具。</p>
-                <!--noindex-->
-                    <div class="post-button text-center">
-                    <a class="btn" href="/blogs/paper/2024/03/20/ndss24-5g-spector.html" rel="contents">
-                        阅读全文 &raquo;
-                    </a>
-                    </div>
-                <!--/noindex-->
-            </div>
-            <footer class="post-footer">
-                <div class="post-eof"></div>
-            </footer>
-        </div>
-    </article>
-    <!-- 文章结束 -->
-
-<!-- 文章开始 -->
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  <div class="post-block">
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lixin's Blog">
-    </span>
-
-    <!-- 标题 -->
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            <a href="/blogs/paper/2023/12/19/hotnets23.html" class="post-title-link" itemprop="url">HotNets'23和HotMobile'23论文总结</a>
-        </h1>
-        
-        <!-- 发表时间 -->
-        <div class="post-meta">
-          <span class="post-time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-                <span class="post-meta-item-text">发表于</span>
-              <time title="创建时间：2019-09-03 20:23:08 / 修改时间：20:45:46" itemprop="dateCreated datePublished" datetime="2019-09-03T20:23:08+08:00">2023-12-19</time> 
-          </span>
-
-        <!-- 分类信息 -->
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-                <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a></span>
-            </span>
-        </div>
-      </header>
-
-            <div class="post-body" itemprop="articleBody">  
-                <!-- 摘要   -->
-                    <p>总结HotNets和HotMobile上感兴趣的文章。</p>
-                <!--noindex-->
-                    <div class="post-button text-center">
-                    <a class="btn" href="/blogs/paper/2023/12/19/hotnets23.html" rel="contents">
-                        阅读全文 &raquo;
-                    </a>
-                    </div>
-                <!--/noindex-->
-            </div>
-            <footer class="post-footer">
-                <div class="post-eof"></div>
-            </footer>
-        </div>
-    </article>
-    <!-- 文章结束 -->
-
-<!-- 文章开始 -->
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  <div class="post-block">
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lixin's Blog">
-    </span>
-
-    <!-- 标题 -->
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            <a href="/blogs/3gpp/2023/12/5/TS33.210.html" class="post-title-link" itemprop="url">TS 33.210 Network Domain Security (NDS); IP network layer security (Release 17)</a>
-        </h1>
-        
-        <!-- 发表时间 -->
-        <div class="post-meta">
-          <span class="post-time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-                <span class="post-meta-item-text">发表于</span>
-              <time title="创建时间：2019-09-03 20:23:08 / 修改时间：20:45:46" itemprop="dateCreated datePublished" datetime="2019-09-03T20:23:08+08:00">2023-12-05</time> 
-          </span>
-
-        <!-- 分类信息 -->
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-                <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Standards/" itemprop="url" rel="index"><span itemprop="name">Standards</span></a></span>
-            </span>
-        </div>
-      </header>
-
-            <div class="post-body" itemprop="articleBody">  
-                <!-- 摘要   -->
-                    <p>TS 33.210是为了支持网络域安全而提出的，在GPRS时代核心网存在安全脆弱性已经是不争的事实。随着IP在移动通信网络中的应用，传输信令和数据流量，这个问题变得更加重要。IP的引入使得网络转向completely open and easily accessible protocols.</p>
-                <!--noindex-->
-                    <div class="post-button text-center">
-                    <a class="btn" href="/blogs/3gpp/2023/12/5/TS33.210.html" rel="contents">
-                        阅读全文 &raquo;
-                    </a>
-                    </div>
-                <!--/noindex-->
-            </div>
-            <footer class="post-footer">
-                <div class="post-eof"></div>
-            </footer>
-        </div>
-    </article>
-    <!-- 文章结束 -->
-
-<!-- 文章开始 -->
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  <div class="post-block">
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lixin's Blog">
-    </span>
-
-    <!-- 标题 -->
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            <a href="/blogs/paper/2023/12/5/5GS-security.html" class="post-title-link" itemprop="url">5G核心网安全</a>
-        </h1>
-        
-        <!-- 发表时间 -->
-        <div class="post-meta">
-          <span class="post-time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-                <span class="post-meta-item-text">发表于</span>
-              <time title="创建时间：2019-09-03 20:23:08 / 修改时间：20:45:46" itemprop="dateCreated datePublished" datetime="2019-09-03T20:23:08+08:00">2023-12-05</time> 
-          </span>
-
-        <!-- 分类信息 -->
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-                <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a></span>
-            </span>
-        </div>
-      </header>
-
-            <div class="post-body" itemprop="articleBody">  
-                <!-- 摘要   -->
-                    <p>摘录《5G核心网》中安全章节的介绍。</p>
-                <!--noindex-->
-                    <div class="post-button text-center">
-                    <a class="btn" href="/blogs/paper/2023/12/5/5GS-security.html" rel="contents">
-                        阅读全文 &raquo;
-                    </a>
-                    </div>
-                <!--/noindex-->
-            </div>
-            <footer class="post-footer">
-                <div class="post-eof"></div>
-            </footer>
-        </div>
-    </article>
-    <!-- 文章结束 -->
-
-    <!-- 文章开始 -->
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  <div class="post-block">
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lixin's Blog">
-    </span>
-
-    <!-- 标题 -->
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            <a href="/blogs/paper/2023/12/5/tls.html" class="post-title-link" itemprop="url">TLS协议</a>
-        </h1>
-        
-        <!-- 发表时间 -->
-        <div class="post-meta">
-          <span class="post-time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-                <span class="post-meta-item-text">发表于</span>
-              <time title="创建时间：2019-09-03 20:23:08 / 修改时间：20:45:46" itemprop="dateCreated datePublished" datetime="2019-09-03T20:23:08+08:00">2023-12-05</time> 
-          </span>
-
-        <!-- 分类信息 -->
-            <span class="post-category">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-                <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a></span>
-            </span>
-        </div>
-      </header>
-
-            <div class="post-body" itemprop="articleBody">  
-                <!-- 摘要   -->
-                    <p>传输层安全协议（TLS，Transport Layer Security）是一种用于在网络上提供安全通信的协议。TLS是安全套接层（SSL，Secure Sockets Layer）的后续版本，广泛用于网络通信的加密。它通过在网络层和应用层之间提供加密保护，确保数据的隐私和完整性。</p>
-                <!--noindex-->
-                    <div class="post-button text-center">
-                    <a class="btn" href="/blogs/paper/2023/12/5/tls.html" rel="contents">
-                        阅读全文 &raquo;
-                    </a>
-                    </div>
-                <!--/noindex-->
-            </div>
-            <footer class="post-footer">
-                <div class="post-eof"></div>
-            </footer>
-        </div>
-    </article>
-    <!-- 文章结束 -->
+    </header>
+    
+<div class="post-body" itemprop="articleBody">
+<!-- 文章内容开始 -->
+<h1 id="summary">SUMMARY</h1>
+<p>本文提出了5G-SPECTOR，一种与O-RAN兼容的L3蜂窝攻击检测工具。</p>
+<p><img src="/images/blogs/paper/5G-SPECTOR-overview.png" alt="图片" /></p>
+<h1 id="back">Background</h1>
+<h2>Initial registration procedure</h2>
+<p><img src="/images/blogs/paper/5G-SPECTOR-fig1.png" alt="图片" /></p>
+<h2>O-RAN</h2>
+<p><img src="/images/blogs/paper/5G-SPECTOR-ORAN.png" alt="图片" /></p>
+<h1 id="threatmodel">Threat Model</h1>
+<p><img src="/images/blogs/paper/5G-SPECTOR-threat-model.png" alt="图片" /></p>
+<h1 id="design">Design</h1>
+<h2>Control layer</h2>
+<p>主要组成是SecSM和MobiFlow。</p>
+<h4>SecSM（Security Service Module)</h4>
+<p>创建O-RAN兼容的接口，使安全关注的xApp能够接收所需的数据平面测量，以便在移动网络中进行实时安全分析。</p>
+<ul>
+<li>
+<p>在RAN控制平面部署一个代理生成测量结果，并在nRT-NIC中部署另一个代理（MobiFlow也在其中）进一步处理。</p>
+</li>
+<li>
+<p>定义E2服务模型（E2SM）规范以处理相应的通信协议（例如指示包格式）。</p>
+</li>
+</ul>
+<h4>MobiFlow</h4>
+<p>灵感来自NetFlow，NetFlow是一种在TCP/IP网络中广泛部署的网络监控流。</p>
+<ul>
+<li>
+<p>UE-centric</p>
+<p>temporary identifiers (C-RNTI, S-TMSI) and permanent identifiers (IMEI, IMSI/SUCI)</p>
+<p>文章还提到了对UE状态的跟踪，这些状态是基于数据包层面的，用来表示在RRC和NAS等不同协议层上的状态转换。此外，通过定时器跟踪UE开始和结束特定RRC/NAS会话的时间信息。</p>
+</li>
+<li>
+<p>RAN-centric</p>
+<p>实时聚合的RAN状态统计，包括physical RAN identifiers (MCC, MNC)，目前connected/idle UE数量，RAN最大容量，设置timer追踪RAN生命周期变化</p>
+</li>
+<li>
+<p>Fine-grained State Transition</p>
+<p>文中提到的SecSM代理负责跟踪所有UE和RAN的状态，并<strong>基于规范定义的FSM进行状态推断</strong>。此外，还跟踪了一个特定的安全状态，以确定UE是否完成了所需的安全模式程序。使用FSM来跟踪状态转换有助于维护网络的完整性和安全性，确保每个组件都了解其当前状态并能够据此采取行动。这是网络管理和安全协议的重要部分，为监控和控制蜂窝网络中的复杂交互提供了一种结构化的方法。</p>
+</li>
+</ul>
+<h2>APP layer</h2>
+<p>组件是MobiExpert xAPP，该程序以MobiFlow records为输入，输出为alert。</p>
+<p>包含几个模块：</p>
+<ul>
+<li>
+<p>pbcc</p>
+<p>将P-BEST规则转化为C代码。</p>
+</li>
+<li>
+<p>eXpert Main Routine</p>
+<p>inference engine</p>
+</li>
+<li>
+<p>garbage collection routine</p>
+<p>内存回收，释放事件</p>
+</li>
+</ul>
+<h1 id="implementation">Implementation</h1>
+<h3>Setup</h3>
+<p>使用SDRAN-in-a-box (RiaB)实现control plane， 使用OAI实现data plane (CU, DU, UE)。</p>
+<p>选择了7种L3 cellular attacks并用P-BEST实现，后转化成C代码。这7种攻击可以根据规则分为3类：</p>
+<ul>
+<li>
+<p>Abnormal Quantity Rule Set</p>
+<p>例如BTS resource depletion，可以通过比较计数器的值和阈值判断是否有异常。</p>
+</li>
+<li>
+<p>Abnormal Message Sequence Rule Set</p>
+<p>分析消息序列中的异常，例如MiTM signal insert攻击。</p>
+</li>
+<li>
+<p>Abnormal State Rule Set</p>
+<p>检测某些状态参数是否异常，例如null ciphering or integrity attacks会导致UE进入一种无加密和完整性保护的受限制状态。</p>
+</li>
+</ul>
+<h3>Examples</h3>
+<p>以2种攻击为例，介绍如何利用P-BEST和MobiFlow生成IDS规则。</p>
+<h4>Example 1: Detecting BTS Resource Depletion Attacks.</h4>
+<blockquote>
+<p>In this attack, a malicious UE exploits the <strong>unprotected <em>RRC ConnectionRequest</em> message</strong>, which allows it to create <strong>massive fabricated RRC connections with random C-RNTIs</strong> to perform DoS attacks on the target BS. Specifically, the attacker UE restarts a new RRC session upon receiving a <em>NAS AuthenticationRequest</em>.</p>
+</blockquote>
+<p>基于如下观察（恶意连接只持续几秒钟），提出一种基于阈值的检测方法。</p>
+<blockquote>
+<p>Each fabricated RRC connection is released after the <strong>T3460</strong> timer in the MME expires while waiting for the <em>NAS AuthenticationResponse</em> from the UE.</p>
+</blockquote>
+<ul>
+<li>这类UE被定义为transient UE</li>
+<li>通过分析MobiFlow records中RRC inactive的时间和RRC initial的时间，计算UE的RRC连接持续的时间t，如果t小于阈值，则该UE被认为是transient UE，对应计数器+1</li>
+<li>如果计数器的值超过了阈值，则认为发生了BTS攻击，生成alert</li>
+</ul>
+<h4>Example 2: Detecting Blind DoS Attacks.</h4>
+<blockquote>
+<p>Blind DoS攻击通过重复使用S-TMSI建立RRC连接实现，S-TMSI可以通过slient paging attack或packet sniffing获得。</p>
+</blockquote>
+<ul>
+<li>比较UE的S-TMSI是否被用来请求建立RRC连接过，通过比较RRC timer确定attacker。</li>
+</ul>
+<p>为了减少false alert，为每种攻击设定了不同的alert level。对于MOBIEXPERT无法确定的事件，以warning的形式抛出。</p>
+<h1 id="evaluation">Evaluation</h1>
+<h4>Setup</h4>
+<ul>
+<li>A host machine (Ubuntu 18.04 OS) equipped with 12 Intel i7-8700 cores and 32GB RAM, which runs three virtual machines (VMs) for the core network, RIC, and RAN (i.e., CU and DU), respectively.</li>
+<li>The RU front-end is either the <strong>OAI nFAPI emulator</strong> or a physical <strong>USRP B210 SDR</strong> attached to the RAN machine via USB 3.0.</li>
+</ul>
+<h4>Goal</h4>
+<ul>
+<li>RQ1: Can 5G-SPECTOR detect known and unknown cellular L3 attacks?</li>
+<li>RQ2: How well does 5G-SPECTOR scale to real-world cellular networks?</li>
+<li>RQ3: Can 5G-SPECTOR be deployed effectively to detect L3 cellular attacks in practice?</li>
+<li>RQ4: What is 5G-SPECTOR's system performance?</li>
+<li>RQ5: What is the overhead that 5G-SPECTOR introduces to the original network?</li>
+</ul>
+<h4>Results</h4>
+<h5>Evaluation with Simulated Attacks and Variants</h5>
+<p><img src="/images/blogs/paper/5G-SPECTOR-attack.png" alt="图片" /></p>
+<p>7 known attacks + 11 unknown attacks</p>
+<blockquote>
+<p>Given the original attack description and the attack session, we either (1) <strong>replace the exploited message with an equivalent one</strong> that triggers the <strong>same consequence</strong> (e.g., AttachReject is replaced byServiceReject to achieve the same DoS effect) or (2) <strong>move the exploited message to other RRC or NAS phases</strong> of the session (e.g., IdentityRequest injection [19] can occur during authentication or security mode procedures to ask the victim to report its IMSI in plain text).</p>
+</blockquote>
+<p>额外用了90 LoC实现了对11种unknown attack的检测。</p>
+<p><span style="color: #C95454;">在知道attack实现方式的情况下，还算unknown吗？这个验证只能说明扩展代价低，并不能证明5G-SPECTOR可以发现未知攻击。</span></p>
+<h5>Evaluation with Real-World Datasets</h5>
+<p>22 benign traces + 9 abnormal traces</p>
+<p>将trace处理为MobiFlow records</p>
+<p>文章定义的scalability是不产生太多false alarm，结果表明5G-SPECTOR低频率产生alarm，且都正确。</p>
+<h5>Evaluation with Over-the-Air Attacks</h5>
+<p><img src="/images/blogs/paper/5G-SPECTOR-testbed.png" alt="图片" /></p>
+<p>实际构造BTS和blind DoS攻击，在victim的设备上开启Zoom session以观察攻击效果。</p>
+<p>可以看到攻击者的Zoom session中断（BTS资源耗尽或重复UE会话），5G-SPECTOR可以正确发出报警信息。</p>
+<h5>Evaluation of Performance</h5>
+<p>测量throughput, detection latency, efficiency, and GC performance。</p>
+<p>都是比较直接的结果。</p>
+<h5>Evaluation of Overhead</h5>
+<p>测量内存和CPU开销，可以看到有一定的开销。</p>
+<span style="color: #C95454;">
+<ol>
+<li>
+<p>这篇文章虽然说的是ORAN兼容的入侵检测工具，但是从设计阶段和检测的攻击类型来看，与ORAN无关，有点挂羊头卖狗肉的感觉。ORAN在5G-SPECTOR设计过程中的作用只是提供数据收集的接口。</p>
+</li>
+<li>
+<p>Evaluation部分验证的攻击类型有限，特别是对于unknown的定义有问题，如果需要知道攻击的逻辑再编写规则处理，不能说是可以检测unknown attack。</p>
+</li>
+<li>
+<p>这篇文章写得有些杂乱，相比会议PPT来讲，给读者感受出入较大。</p>
+</li>
+</ol>
+</span>
+<p>Link to paper: <a href="https://www.ndss-symposium.org/ndss-paper/5g-spector-an-o-ran-compliant-layer-3-cellular-attack-detection-service/">5G-SPECTOR: An O-RAN Compliant Layer-3 Cellular Attack Detection Service</a></p>
+<p>Link to Github: <a href="https://github.com/5GSEC/5G-Spector">5G-SPECTOR</a></p>
 
 
-</section>
-
-<!-- 翻页 -->
-  <nav class="pagination">
-    <span class="page-number current">1</span>
-    <a class="page-number" href="/page/page_2.html">2</a>
-    <!-- <span class="space">&hellip;</span>
-    <a class="page-number" href="/page/5/">5</a> -->
-    <a class="extend next" rel="next" href="/page/page_2.html">
-        <i class="fa fa-angle-right" aria-label="下一页"></i>
-    </a>
-  </nav>
-
-    </div>
+<!-- 文章内容最后 -->
 </div>
- 
+
+<footer class="post-footer">
+    <!-- 标签信息 -->
+    <div class="post-tags">
+        <a href="/tags/Security" rel="tag"># Security</a>
+        <a href="/tags/Mobile Network" rel="tag"># Mobile Network</a>
+    </div>
+    <!-- 文章信息 -->
+    <div class="post-nav">
+        <!-- 上一篇 -->
+        <div class="post-nav-next post-nav-item">
+            <a href="/blogs/paper/2023/12/19/hotnets23.html" rel="next" title="HotNets'23和HotMobile'23论文总结">
+                <i class="fa fa-chevron-left"></i> HotNets'23和HotMobile'23论文总结
+            </a>
+        </div>
+        <!-- 下一篇 -->
+        <span class="post-nav-divider"></span>
+        <div class="post-nav-prev post-nav-item">
+            <!-- <a href="/blogs/paper/2023/12/5/tls.html" rel="prev" title="TLS协议">
+              TLS协议 <i class="fa fa-chevron-right"></i>
+            </a> -->
+        </div>
+    </div>
+</footer>
+
+</div>
+</article>
+
+</div>
+</div>
+<!-- github comments -->
+    <!-- <div class="comments" id="comments">
+        <div id="gitment-container"></div>
+    </div> -->
+    
+</div>
+  
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
       <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
       <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
       <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-  </div>  
-</div>
-</main>
+  </div>
 
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+
+ <!-- 右侧边栏开始 --> 
+<aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+ <!-- 右侧边栏内容 -->    
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li>
+          <!-- <li class="sidebar-nav-overview" data-target="site-overview-wrap">站点概览</li> -->
+        </ul>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            <!-- 目录 -->
+            <div class="post-toc-content">
+                <ol class="nav">
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#summary">
+                            <span class="nav-text">SUMMARY</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#back">
+                            <span class="nav-text">Background</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#threatmodel">
+                            <span class="nav-text">Threat Model</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#design">
+                            <span class="nav-text">Design</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#implementation">
+                            <span class="nav-text">Implementation</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-level-1">
+                        <a class="nav-link" href="#evaluation">
+                            <span class="nav-text">Evaluation</span>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+          </div>
+        </div>
+      <!--/noindex-->
+
+<!-- 右侧边栏结束 --> 
+    </div>
+</aside>
+
+
+        
       </div>
+    </main>
+
+<!-- 页面最下方的描述 -->
+
+<!-- <footer id="footer" class="footer">
+    <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <span class="with-love" id="animate">
+            <i class="fa fa-user"></i>
+        </span>
+        <span class="author" itemprop="copyrightHolder">Lianm</span>
+        </div>
+        <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+        <span class="post-meta-divider">|</span>
+        <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.0.0</div>
+    </div>
+</footer> -->
+
+<!-- 返回顶部 -->
+<div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>        
 </div>
+      
+</div>
+
+  
 
 <script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
@@ -432,7 +479,9 @@
   }
 </script>
 
-<script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/assets/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/assets/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/assets/lib/jquery/index.js?v=2.1.3"></script>
   <script src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
@@ -441,8 +490,54 @@
   <script src="/assets/js/src/utils.js?v=7.0.0"></script>
   <script src="/assets/js/src/motion.js?v=7.0.0"></script>
   <script src="/assets/js/src/schemes/muse.js?v=7.0.0"></script>
+  <script src="/assets/js/src/scrollspy.js?v=7.0.0"></script>
+  <script src="/assets/js/src/post-details.js?v=7.0.0"></script>
   <script src="/assets/js/src/bootstrap.js?v=7.0.0"></script>
 
+
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<!-- github comment -->
+<!-- <style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'Ming-Lian',
+      repo: 'Gitment-repo',
+      
+      oauth: {
+      
+      
+        client_secret: '3dc34ff32bbb0ee876b487f13a800b08857e0a10',
+      
+        client_id: '0e14870b1fb232903713'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script> -->
+
+  
+
+
+  
   <script>
     // Popup Window;
     var isfetched = false;
@@ -763,38 +858,6 @@
     });
   </script>
 
-      <script type="text/x-mathjax-config">
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow: auto hidden;
-}
-</style>
 
   <script>
     (function(){
@@ -810,5 +873,6 @@
       s.parentNode.insertBefore(bp, s);
     })();
   </script>
+
 </body>
 </html>
