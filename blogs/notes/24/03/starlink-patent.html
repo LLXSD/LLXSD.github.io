@@ -183,7 +183,7 @@
     
 <div class="post-body" itemprop="articleBody">
 <!-- 文章内容开始 -->
-<h1>US11540301 MAC scheduler</h1>
+<h1 id="macscheduler">US11540301 MAC scheduler</h1>
 <p>专利提出了a new MAC scheduler，包括uplink scheduler和downlink scheduler，分别配有grant allocation algorithm。</p>
 <blockquote>
 <p>An uplink scheduler can generate an uplink map that defines, for a group of user terminals on earth, which portions of an uplink radio frame can be used to transmit data to the satellite.
@@ -200,7 +200,7 @@ UT半双工工作模式，卫星是全双工工作模式。</p>
 RLC的模式在AM mode和UM mode之间变化，其中AM mode指的是可靠模式，RLC提供全功能处理，由于有重传，效率最低。UM mode指的是不可靠模式，RLC不做重传ARQ处理。
 RLC sublayer从MAC scheduler处获得对每个SID/SFID的授权。MAC scheduler通过授权，为UT分配无线资源。
 RLC子层接收SID/SFID对，并将其映射到RLC流，从MAC调度程序获得授权，并生成一个RLC PDU(未显示)，其中包含RLC头和所需的 SDU，根据需要进行分片以完成授权。</p>
-<h1>US 11729684 Handover</h1>
+<h1 id="handover">US 11729684 Handover</h1>
 <p>专利中提到handover发生有两种可能，主要原因是out of coverage area，所以猜测Starlink是<strong>reactive handover</strong>，但是后文还列举了许多其他原因，handover的触发有多种情况。</p>
 <ul>
 <li>当卫星移动导致设备不在卫星的覆盖范围时；</li>
@@ -308,7 +308,7 @@ In some cases, a TDM radio frame can include an error correction channel before 
 </ol>
 <p><img src="https://img-blog.csdnimg.cn/5970868bb03a48ba997c375a73236b76.png" alt="在这里插入图片描述" />
 如上图所示，专利中提到low latency handover。</p>
-<h1>US 2023/0164089 A1 computing resource</h1>
+<h1 id="resource">US 2023/0164089 A1 computing resource</h1>
 <p>这篇专利主要讲如何支持星上计算，卫星上配备相关的计算、存储、访问控制环境，用于支持不同应用。特别提到可以利用卫星间星间链路提供low latency content delivery。
 <img src="https://img-blog.csdnimg.cn/2269ac5ec33143b8b776eb36c24bcff7.png" alt="在这里插入图片描述" />
 专利中提到了用户计费，不要求用户需要绑定到具体的UT，account data应当是独立于具体的UT和gateway的。
