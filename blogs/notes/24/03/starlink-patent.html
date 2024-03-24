@@ -194,9 +194,9 @@ The scheduler provides a &quot;grant&quot; of radio resources in th uplink radio
 <p><img src="/images/blogs/notes/Starlink-patent-1.png" alt="在这里插入图片描述" />
 专利披露存在a link adapatation algorithm which dynamically adjusts the modulation and coding scheme (MCS) for the uplink and the downlink.
 UT半双工工作模式，卫星是全双工工作模式。</p>
-<p><img src="https://img-blog.csdnimg.cn/84cce9c3e65f4d4b9fc5d5fd333265f6.png" alt="Fig 4" />
+<p><img src="/images/blogs/notes/Starlink-patent-2.png" alt="Fig 4" />
 从上图来看，LMAC和RLC都上星了，encoder/decoder也都在卫星上。
-<img src="https://img-blog.csdnimg.cn/5d0227a543ba42b094f080f3350be33b.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-3.png" alt="在这里插入图片描述" />
 RLC的模式在AM mode和UM mode之间变化，其中AM mode指的是可靠模式，RLC提供全功能处理，由于有重传，效率最低。UM mode指的是不可靠模式，RLC不做重传ARQ处理。
 RLC sublayer从MAC scheduler处获得对每个SID/SFID的授权。MAC scheduler通过授权，为UT分配无线资源。
 RLC子层接收SID/SFID对，并将其映射到RLC流，从MAC调度程序获得授权，并生成一个RLC PDU(未显示)，其中包含RLC头和所需的 SDU，根据需要进行分片以完成授权。</p>
@@ -207,11 +207,11 @@ RLC子层接收SID/SFID对，并将其映射到RLC流，从MAC调度程序获得
 <li>当移动终端移动导致超出卫星/基站的覆盖范围时；</li>
 </ul>
 <p>专利提到现有wireless handover technologies often experience perceptible latencies and loss or interruption of service, have limited scalability, flexibility and efficiency.
-<img src="https://img-blog.csdnimg.cn/e75ccde3c57240b790045cbdbe0201ea.png" alt="在这里插入图片描述" />
-<img src="https://img-blog.csdnimg.cn/c0c3eed2925e471b820fe66ad4c0a080.png" alt="" />
+<img src="/images/blogs/notes/Starlink-patent-4.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-5.png" alt="" />
 专利中明确提出在卫星和卫星之间、卫星和地面站之间、卫星和用户之间存在RF link，用于通信。
-<img src="https://img-blog.csdnimg.cn/fab69c63638d4a41853722a29d1a6889.png" alt="在这里插入图片描述" />
-<img src="https://img-blog.csdnimg.cn/c3970762d7154a17908791851dc4e9fa.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-6.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-7.png" alt="在这里插入图片描述" />
 专利中提到SAG配备了repeater，用于relay卫星间的流量，所以猜测本文提到的星间RF link并没有使用，通信还是依赖于地面的。</p>
 <h3>RDS</h3>
 <p>在专利中，提到RDS(维护网络拓扑并生成schedule)定义的schedule的内容：</p>
@@ -233,16 +233,16 @@ RLC子层接收SID/SFID对，并将其映射到RLC流，从MAC调度程序获得
 </ul>
 <p>专利中提到the particular SAT and SAG can be selected based on <strong>signal strength</strong>, <strong>line-of-sight</strong>, and the like.
 回程可以用相同的SAT/SAG，也可以用不同的，此外，专利提到卫星和卫星之间、卫星和地面站之间、卫星和用户之间的链路可以采用OFDMA模式。为了计算高效，也支持FFT和inverse FFT。
-<img src="https://img-blog.csdnimg.cn/dabaf89a4b1a4eecb6dbb64f416d1c18.png" alt="在这里插入图片描述" /></p>
+<img src="/images/blogs/notes/Starlink-patent-8.png" alt="在这里插入图片描述" /></p>
 <h3>encrypted traffic</h3>
-<p><img src="https://img-blog.csdnimg.cn/1312543a625e48a2bf3add7b1361897d.png" alt="在这里插入图片描述" />
+<p><img src="/images/blogs/notes/Starlink-patent-9.png" alt="在这里插入图片描述" />
 专利中提出在User Terminal和PoP之间做加密信道，其中User Terminal指的应该是Starlink Router。
-<img src="https://img-blog.csdnimg.cn/2f6612f696864811a244598565148989.png" alt="在这里插入图片描述" /></p>
+<img src="/images/blogs/notes/Starlink-patent-10.png" alt="在这里插入图片描述" /></p>
 <h3>L3 address</h3>
-<p><img src="https://img-blog.csdnimg.cn/6e311be2700c46db9128d86dcb103222.png" alt="在这里插入图片描述" />
+<p><img src="/images/blogs/notes/Starlink-patent-11.png" alt="在这里插入图片描述" />
 专利中明确提到，为了在上述virtual link中路由数据包，每个component会被分配routing identifier/address，明确提到IP地址。这些identifier/address可以被用来执行路由决策、路由/转发数据包、计算路径/开销、监测拓扑和网络条件等。</p>
 <h3>handover signal procedure</h3>
-<p><img src="https://img-blog.csdnimg.cn/1dc366a550534af3864860f05e9db9f1.png" alt="Fig 2" />
+<p><img src="/images/blogs/notes/Starlink-patent-12.png" alt="Fig 2" />
 从图中来看，RDS负责生成schedule，卫星收到schedules后本地保存一份，并告知UT，UT可以周期性地向RDS请求schedules。
 通常在出现以下情况时，会触发handover：</p>
 <ol>
@@ -254,42 +254,42 @@ RLC子层接收SID/SFID对，并将其映射到RLC流，从MAC调度程序获得
 </ol>
 <p>从上述原因来看，可能会由于其他原因触发handover，不一定是reactive模式。
 专利中对于handover过程丢包的讨论：
-<img src="https://img-blog.csdnimg.cn/e749b071de3941b9a45fcdb3eb58aeaa.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-13.png" alt="在这里插入图片描述" />
 过程描述：</p>
 <ol>
 <li>UE根据schedule，发起handover request，这个request可以被UT的L2 (UMAC)处理。
 相似地，卫星也可以生成handover request，由卫星的L2处理 (<strong>UMAC确定上星</strong>)；
 UE生成的request中包含<strong>new session identifier (SID)</strong>, <strong>a time/time slot for the handover</strong>, <strong>an identication</strong> that the UT is requesting a handover.
-<img src="https://img-blog.csdnimg.cn/f2904daa60fb4c03835af61e52997775.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-14.png" alt="在这里插入图片描述" />
 卫星生成的request中包括<strong>new cell identifier</strong>, <strong>a group of SIDs</strong> corresponding to flows/UTs associated with a cell corresponding to the new cell identifier, <strong>a time/time slot for a given beam from the SAT</strong>, <strong>an indication</strong> of the handover.</li>
 <li>UT初始化Rx/Tx takedown过程，以断开L2的Rx和Tx connections/interfaces；UT可发起Rx/Tx beam pointing service (BPS) down command，关闭Rx/Tx beam-pointing operation，卫星进行同样的操作；</li>
 <li>在经过上述takedown操作后，UT和旧卫星的communication link断开；</li>
 <li>UT通过bring up Rx/Tx, BPS进行handover的准备；</li>
 <li>UE和新的卫星之间建立communication link。
-<img src="https://img-blog.csdnimg.cn/4dfae7887ae144cfbf840cc9a3f54ce1.png" alt="图片" />
+<img src="/images/blogs/notes/Starlink-patent-15.png" alt="图片" />
 上图为UT内部的信令流程，与前面的介绍基本一致。
 其中，L1 Rx/Tx down command和Rx/Tx BPS down command可以包括<strong>timing information</strong>，后者还可以包括<strong>an indication of a new beam pointing direction/angle</strong> for the new communication link。</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/d41a8f45eee540acbfcf40799418b80e.png" alt="图片" />
+<p><img src="/images/blogs/notes/Starlink-patent-16.png" alt="图片" />
 专利提到在handover发生前，可以通过routing table update消息更新卫星的路由表/L3地址，修改与UT和SAT相关的表项。
 猜测这里的路由表就是为了转发。</p>
-<p><img src="https://img-blog.csdnimg.cn/26291d4fe35c46159fdd29dd1ee96d0b.png" alt="在这里插入图片描述" /></p>
+<p><img src="/images/blogs/notes/Starlink-patent-17.png" alt="在这里插入图片描述" /></p>
 <h3>切换场景</h3>
 <ol>
 <li>
 <p>不同卫星的不同beam间切换：
-<img src="https://img-blog.csdnimg.cn/ce73e75a0d58419fb020807f344f71ba.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-18.png" alt="在这里插入图片描述" />
 为了执行切换，建立了从PoP到new SAT 的新路径。
 专利提到，为了避免丢包，数据包会同时利用两条path双播，且卫星会在handover完成之前缓存数据包。
 bicasted packet中包括<strong>an indication</strong>，以标识数据包在handover过程中是否被丢弃。比如，L3 can perform 1-bit flipping in the SID of the packet, MAC sub layer can check for 1-bit flipping to determine whether to buffer any packets targeting the cell after/before the handover. L3 can include/maintain old and new routing tables before and after the handover.</p>
 </li>
 <li>
 <p>相同卫星的不同beam间切换：
-<img src="https://img-blog.csdnimg.cn/f21d6c75c9154b4aa93a2b01d3e090e7.png" alt="Fig 5" /></p>
+<img src="/images/blogs/notes/Starlink-patent-19.png" alt="Fig 5" /></p>
 </li>
 <li>
 <p>不同卫星的不同beam间切换(未切换SAG)：
-<img src="https://img-blog.csdnimg.cn/ed2628e8bd9d4a718dfd35d014786f32.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-20.png" alt="在这里插入图片描述" />
 上图所示切换过程使用了TDM (Time-driven multiplexing)，此时一颗卫星可以服务多个小区，发生在一个/多个小区发生切换时。</p>
 </li>
 </ol>
@@ -301,7 +301,7 @@ In some cases, a TDM radio frame can include an error correction channel before 
 </blockquote>
 <ol start="4">
 <li>不同卫星的不同beam间切换：
-<img src="https://img-blog.csdnimg.cn/f68808073f3748668f023155a8ce982d.png" alt="在这里插入图片描述" /></li>
+<img src="/images/blogs/notes/Starlink-patent-21.png" alt="在这里插入图片描述" /></li>
 <li>相同卫星的不同beam间切换：
 <img src="https://img-blog.csdnimg.cn/21d62e3dbe914a2faf64821ebc821fc4.png" alt="在这里插入图片描述" />
 后两种跟前三种的区别是，后两种是由UT触发的，流程基本一致。</li>
