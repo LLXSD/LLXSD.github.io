@@ -303,14 +303,14 @@ In some cases, a TDM radio frame can include an error correction channel before 
 <li>不同卫星的不同beam间切换：
 <img src="/images/blogs/notes/Starlink-patent-21.png" alt="在这里插入图片描述" /></li>
 <li>相同卫星的不同beam间切换：
-<img src="https://img-blog.csdnimg.cn/21d62e3dbe914a2faf64821ebc821fc4.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-22.png" alt="在这里插入图片描述" />
 后两种跟前三种的区别是，后两种是由UT触发的，流程基本一致。</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/5970868bb03a48ba997c375a73236b76.png" alt="在这里插入图片描述" />
+<p><img src="/images/blogs/notes/Starlink-patent-23.png" alt="在这里插入图片描述" />
 如上图所示，专利中提到low latency handover。</p>
 <h1 id="resource">US 2023/0164089 A1 computing resource</h1>
 <p>这篇专利主要讲如何支持星上计算，卫星上配备相关的计算、存储、访问控制环境，用于支持不同应用。特别提到可以利用卫星间星间链路提供low latency content delivery。
-<img src="https://img-blog.csdnimg.cn/2269ac5ec33143b8b776eb36c24bcff7.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-24.png" alt="在这里插入图片描述" />
 专利中提到了用户计费，不要求用户需要绑定到具体的UT，account data应当是独立于具体的UT和gateway的。
 这暗含了decoupling，在共享场景下，用户也不应该绑定到具体的地面站，然而核心网分布是固定的，如果依赖地面核心网，是否意味着绑定到某个地面站？</p>
 <blockquote>
@@ -322,31 +322,31 @@ In other cases, the user interface may not be altered or needed from a tradition
 <p>a satellite includes a satellite control system, an antenna connected to the satellite control system, a solar panel, a battery and a power converter configured between the solar panel and the battery to manage a flow of electricity.</p>
 </blockquote>
 <p>也提到了当卫星上不止一种计算环境时的情况：
-<img src="https://img-blog.csdnimg.cn/751728e70ee5468fa3536d04c6bebf10.png" alt="在这里插入图片描述" /></p>
+<img src="/images/blogs/notes/Starlink-patent-25.png" alt="在这里插入图片描述" /></p>
 <h2>系统元素</h2>
-<p><img src="https://img-blog.csdnimg.cn/7d0d6ffdf66f4c599a6582dc324d1a8a.png" alt="Fig 1B" />
+<p><img src="/images/blogs/notes/Starlink-patent-26.png" alt="Fig 1B" />
 专利中提到上述元素之间可以通过mesh network通信，且由于卫星移动节点的配置动态改变（特别提到卫星和卫星之间可以通信）。图中存在3种链路：</p>
 <ul>
 <li>UT-SAT: Ku-band radio frequency link (phased array antenna).</li>
 <li>SAT-GW: Ka-band radio frequency link (parabolic anntenna).</li>
 <li>SAT-SAT: laser-based link (multiple).
-<img src="https://img-blog.csdnimg.cn/b08261905c1b451ca45f13523def7649.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-27.png" alt="在这里插入图片描述" />
 为了做路由，专利提到需要知道UT上空有多少颗可见卫星，以及对应的data link、traffic等信息。面向星上计算的路由计算不止考虑可达性，还考虑性能需求。
-<img src="https://img-blog.csdnimg.cn/4f1c95e9fadb4c0cb91b46fd0a2a1bb4.png" alt="在这里插入图片描述" /></li>
+<img src="/images/blogs/notes/Starlink-patent-28.png" alt="在这里插入图片描述" /></li>
 </ul>
 <h2>小区映射</h2>
 <blockquote>
 <p>The ground area includes user terminals grouped into service cells.
 专利中以hexagonally shaped area表示，同时也提到支持各种形状的area.</p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/892b701b65a84be9ae4ff0dda0f07d75.png" alt="在这里插入图片描述" />
+<p><img src="/images/blogs/notes/Starlink-patent-29.png" alt="在这里插入图片描述" />
 专利中提到topology service模块为每个service cell分配一个卫星 (slot-by-slot, the slot length is between 10 and 20 seconds)，存在service cell和卫星之间的一一映射。从下图看，一颗卫星可以服务多个cell，每个cell可以映射到一颗卫星。
-<img src="https://img-blog.csdnimg.cn/e9441b87ab754cc78014f338eaafcca6.png" alt="在这里插入图片描述" /></p>
-<p><img src="https://img-blog.csdnimg.cn/6a4c6bbeac694f8b99520f7d8640ac74.png" alt="Fig 4" />
-<img src="https://img-blog.csdnimg.cn/8b49f6f7cbb046c89a3f81e6889b1a5a.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-30.png" alt="在这里插入图片描述" /></p>
+<p><img src="/images/blogs/notes/Starlink-patent-31.png" alt="Fig 4" />
+<img src="/images/blogs/notes/Starlink-patent-32.png" alt="在这里插入图片描述" />
 schedule应该提前分发给卫星和UT，专利中提到可提前5-10分钟分发。提前的时间是控制消息开销和实时性的tradeoff。
 卫星上也有schedule，指示跟哪个GW连接。
-<img src="https://img-blog.csdnimg.cn/8d4a835ca6214a2a9789e8c569786d3d.png" alt="在这里插入图片描述" />
+<img src="/images/blogs/notes/Starlink-patent-33.png" alt="在这里插入图片描述" />
 根据专利中的描述，UT可收到一份带有优先级的卫星列表，每个service cell的优先级有所不同，猜测是为了负载均衡。
 UT会按照优先级发起接入请求，当优先级高的卫星无法接入时，再请求接入列表内其他卫星。
 UT也可获得一份没有优先级的列表，此时UT可以根据自己的选择确定顺序。
@@ -354,10 +354,10 @@ UT也可获得一份没有优先级的列表，此时UT可以根据自己的选�
 [映射到同一service cell的卫星的channel必须不同，否则会发生干扰。]
 问题在于，<strong>schedule中提供了一个卫星列表，如何得知UT具体接入的是哪颗卫星呢？</strong></p>
 <p>从专利的描述来看，SAT-GW链路也是由topology schedule控制，卫星选择地站，而非地站选择卫星。
-<img src="https://img-blog.csdnimg.cn/2c60bd90c26b4555bee3825886d64307.png" alt="在这里插入图片描述" /></p>
-<p><img src="https://img-blog.csdnimg.cn/ebd2779356aa4c1b8d5b132aab02fa7b.png" alt="Fig 6" />
-<img src="https://img-blog.csdnimg.cn/5567faa20af041ccafeec74ab3f36fce.png" alt="Fig 7A" />
-<img src="https://img-blog.csdnimg.cn/9bb8391c71d04a109fda4e379dac8ca0.png" alt="Fig 7B" /></p>
+<img src="/images/blogs/notes/Starlink-patent-34.png" alt="在这里插入图片描述" /></p>
+<p><img src="/images/blogs/notes/Starlink-patent-35.png" alt="Fig 6" />
+<img src="/images/blogs/notes/Starlink-patent-36.png" alt="Fig 7A" />
+<img src="/images/blogs/notes/Starlink-patent-37.png" alt="Fig 7B" /></p>
 
 
 
