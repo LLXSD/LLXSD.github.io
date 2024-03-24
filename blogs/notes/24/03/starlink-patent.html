@@ -191,7 +191,7 @@ A downlink scheduler that is used to generate a downlink map that defines portio
 User terminals can be defined by geographic cells or sectors.
 The scheduler provides a &quot;grant&quot; of radio resources in th uplink radio frame for each user terminal.</p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/185236ee60ea47a6bde75def55ee89ff.png" alt="在这里插入图片描述" />
+<p><img src="/images/blogs/notes/Starlink-patent-1.png" alt="在这里插入图片描述" />
 专利披露存在a link adapatation algorithm which dynamically adjusts the modulation and coding scheme (MCS) for the uplink and the downlink.
 UT半双工工作模式，卫星是全双工工作模式。</p>
 <p><img src="https://img-blog.csdnimg.cn/84cce9c3e65f4d4b9fc5d5fd333265f6.png" alt="Fig 4" />
@@ -266,11 +266,11 @@ UE生成的request中包含<strong>new session identifier (SID)</strong>, <stron
 <li>在经过上述takedown操作后，UT和旧卫星的communication link断开；</li>
 <li>UT通过bring up Rx/Tx, BPS进行handover的准备；</li>
 <li>UE和新的卫星之间建立communication link。
-<img src="https://img-blog.csdnimg.cn/4dfae7887ae144cfbf840cc9a3f54ce1.png" alt="Fig3A" />
+<img src="https://img-blog.csdnimg.cn/4dfae7887ae144cfbf840cc9a3f54ce1.png" alt="图片" />
 上图为UT内部的信令流程，与前面的介绍基本一致。
 其中，L1 Rx/Tx down command和Rx/Tx BPS down command可以包括<strong>timing information</strong>，后者还可以包括<strong>an indication of a new beam pointing direction/angle</strong> for the new communication link。</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/d41a8f45eee540acbfcf40799418b80e.png" alt="Fig3B" />
+<p><img src="https://img-blog.csdnimg.cn/d41a8f45eee540acbfcf40799418b80e.png" alt="图片" />
 专利提到在handover发生前，可以通过routing table update消息更新卫星的路由表/L3地址，修改与UT和SAT相关的表项。
 猜测这里的路由表就是为了转发。</p>
 <p><img src="https://img-blog.csdnimg.cn/26291d4fe35c46159fdd29dd1ee96d0b.png" alt="在这里插入图片描述" /></p>
