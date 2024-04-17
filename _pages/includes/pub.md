@@ -3,8 +3,7 @@
 
 ## 🛰️ Satellite Network 
 - ``NSDI 2024`` [Democratizing Direct-to-Cell Low Earth Orbit Satellite Networks](https://www.usenix.org/conference/nsdi24/presentation/liu-lixin), **<u>Lixin Liu</u>**, Yuanjie Li, Hewu Li, Jiabo Yang, Wei Liu, Jingyi Lan, Yufeng Wang, Jiarui Li, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai.
-
-  <font color=red>**Outstanding Paper Award**</font>
+**<font color=red>Outstanding Paper Award</font>**
 
 - ``MobiCom 2024`` [Stable hierarchical routing for operational satellite networks](https://www.sigmobile.org/mobicom/2024/), Yuanjie Li, **<u>Lixin Liu</u>**, Hewu Li, Wei Liu, Yimei Chen, Wei Zhao, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai.
 
