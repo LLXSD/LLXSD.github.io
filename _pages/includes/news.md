@@ -1,4 +1,5 @@
 # 🔥 News
+- *2024.09*: 🎉 "Unraveling Physical Space Limits for LEO Network Scalability" has been accepted by HotNets 2024
 - *2024.04*: 🎉 Our NSDI paper "Democratizing Direct-to-Cell Low Earth Orbit Satellite Networks" receives the **USENIX NSDI'24 Outstanding Paper Award**!
 - *2024.02*: 🌟 Our position paper on 6G and beyond network functions from space will appear at [IEEE Internet Computing](https://ieeexplore.ieee.org/abstract/document/10417070).
 - *2023.12*: 🎉 "Democratizing Direct-to-Cell Low Earth Orbit Satellite Networks" has been accepted by NSDI 2024
