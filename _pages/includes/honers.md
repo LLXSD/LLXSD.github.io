@@ -1,4 +1,5 @@
 # 🎖 Honors and Awards
+- *2024.10* National Scholarship
 - *2024.04* **Outstanding Paper Award**, NSDI 2024
 - *2024.04* Travel grant, NSDI 2024
 - *2024.03* The third prize of the Tsinghua University Student Laboratory Construction Contribution Award
