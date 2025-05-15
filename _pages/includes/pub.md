@@ -7,6 +7,9 @@
 
 - ``MobiCom 2024`` [Stable hierarchical routing for operational satellite networks](https://www.sigmobile.org/mobicom/2024/), Yuanjie Li, **<u>Lixin Liu</u>**, Hewu Li, Wei Liu, Yimei Chen, Wei Zhao, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai.[[Slides](/docs/mobicom24-liu-slides.pdf)]
 
+- ``HotNets 2024`` [Unraveling Physical Space Limits for LEO Network Scalability](https://dl.acm.org/doi/abs/10.1145/3696348.3696885), Yimei Chen, **<u>Lixin Liu</u>**, Yuanjie Li, Hewu Li, Qian Wu, Jun Liu, Zeqi Lai.
+
+
 - ``IEEE Internet Computing`` [Enabling 6G and Beyond Network Functions from Space: Challenges and Opportunities](https://ieeexplore.ieee.org/abstract/document/10417070), **<u>Lixin Liu</u>**, Wei Liu, Yuanjie Li, Hewu Li.
 
 - ``MobiCom 2023`` [A Networking Perspective on Starlink’s Self-Driving LEO Mega-Constellation](https://dl.acm.org/doi/10.1145/3570361.3592519), Yuanjie Li, Hewu Li, Wei Liu, **<u>Lixin Liu</u>**, Wei Zhao, Yimei Chen, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai, Han Qiu.
