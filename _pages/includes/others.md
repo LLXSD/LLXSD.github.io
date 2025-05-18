@@ -14,6 +14,5 @@
 - *2021.06 - 2021.09*, Alibaba, Beijing.
 
 # 📇 CV
-[Lixin Liu's CV](/docs/Lixin%20Liu-CV.pdf)
-
-[CV中文版](/docs/刘李鑫-清华大学-0518.pdf)
+- [Lixin Liu's CV](/docs/Lixin%20Liu-CV.pdf)
+- [CV中文版](/docs/刘李鑫-清华大学-0518.pdf)
