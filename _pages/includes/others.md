@@ -15,3 +15,4 @@
 
 # 📇 CV
 [Lixin Liu's CV](/docs/Lixin%20Liu-CV.pdf)
+[CV中文版](/docs/刘李鑫-清华大学-0518.pdf)
