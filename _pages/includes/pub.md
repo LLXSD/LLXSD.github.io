@@ -9,7 +9,6 @@
 
 - ``HotNets 2024`` [Unraveling Physical Space Limits for LEO Network Scalability](https://dl.acm.org/doi/abs/10.1145/3696348.3696885), Yimei Chen, **<u>Lixin Liu</u>**, Yuanjie Li, Hewu Li, Qian Wu, Jun Liu, Zeqi Lai.
 
-
 - ``IEEE Internet Computing`` [Enabling 6G and Beyond Network Functions from Space: Challenges and Opportunities](https://ieeexplore.ieee.org/abstract/document/10417070), **<u>Lixin Liu</u>**, Wei Liu, Yuanjie Li, Hewu Li.
 
 - ``MobiCom 2023`` [A Networking Perspective on Starlink’s Self-Driving LEO Mega-Constellation](https://dl.acm.org/doi/10.1145/3570361.3592519), Yuanjie Li, Hewu Li, Wei Liu, **<u>Lixin Liu</u>**, Wei Zhao, Yimei Chen, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai, Han Qiu.
@@ -18,6 +17,10 @@
 
 - ``IWQoS 2022`` [Geographic Low-Earth-Orbit Networking without QoS Bottlenecks from Infrastructure Mobility](https://ieeexplore.ieee.org/document/9812903), **<u>Lixin Liu</u>**, Hewu Li, Yuanjie Li, Zeqi Lai, Yangtao Deng, Yimei Chen, Wei Liu, Qian Wu.
 
+- ``SIGCOMM 2025`` [Direct-to-Cell Satellite Network without Satellite Navigation], Wei Liu, Yuanjie Li, Jingyi Lan, Hewu Li, Yimei Chen, **<u>Lixin Liu</u>**, Jiabo Yang, Xi Long, Li Ouyang, Minghao Tang, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai. 
+
+- ``SIGCOMM 2025`` [Small-scale LEO Satellite Networking for Global-scale Demands], Yuanjie Li, Yimei Chen, Jiabo Yang, Jinyao Zhang, Bowen Sun, **<u>Lixin Liu</u>**, Hewu Li, Jianping Wu, Zeqi Lai, Qian Wu, Jun Liu. 
+  
 - ``NSDI 2023`` [StarryNet: Empowering Researchers to Evaluate Futuristic Integrated Space and Terrestrial Networks](https://www.usenix.org/conference/nsdi23/presentation/lai-zeqi), Zeqi Lai, Hewu Li, Yangtao Deng, Qian Wu, Jun Liu, Yuanjie Li, Jihao Li, **<u>Lixin Liu</u>**, Weisen Liu, Jianping Wu.
 
 - ``HotNets 2021`` ["Internet in Space" for Terrestrial Users via Cyber-Physical Convergence](https://dl.acm.org/doi/abs/10.1145/3484266.3487375), Yuanjie Li, Hewu Li, **<u>Lixin Liu</u>**, Wei Liu, Jiayi Liu, Jianping Wu, Qian Wu, Jun Liu, and Zeqi Lai.
