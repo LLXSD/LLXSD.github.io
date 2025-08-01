@@ -17,9 +17,9 @@
 
 - ``IWQoS 2022`` [Geographic Low-Earth-Orbit Networking without QoS Bottlenecks from Infrastructure Mobility](https://ieeexplore.ieee.org/document/9812903), **<u>Lixin Liu</u>**, Hewu Li, Yuanjie Li, Zeqi Lai, Yangtao Deng, Yimei Chen, Wei Liu, Qian Wu.
 
-- ``SIGCOMM 2025`` [Direct-to-Cell Satellite Network without Satellite Navigation], Wei Liu, Yuanjie Li, Jingyi Lan, Hewu Li, Yimei Chen, **<u>Lixin Liu</u>**, Jiabo Yang, Xi Long, Li Ouyang, Minghao Tang, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai. 
+- ``SIGCOMM 2025`` [Direct-to-Cell Satellite Network without Satellite Navigation](https://conferences.sigcomm.org/sigcomm/2025/), Wei Liu, Yuanjie Li, Jingyi Lan, Hewu Li, Yimei Chen, **<u>Lixin Liu</u>**, Jiabo Yang, Xi Long, Li Ouyang, Minghao Tang, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai. 
 
-- ``SIGCOMM 2025`` [Small-scale LEO Satellite Networking for Global-scale Demands], Yuanjie Li, Yimei Chen, Jiabo Yang, Jinyao Zhang, Bowen Sun, **<u>Lixin Liu</u>**, Hewu Li, Jianping Wu, Zeqi Lai, Qian Wu, Jun Liu. 
+- ``SIGCOMM 2025`` [Small-scale LEO Satellite Networking for Global-scale Demands](https://conferences.sigcomm.org/sigcomm/2025/), Yuanjie Li, Yimei Chen, Jiabo Yang, Jinyao Zhang, Bowen Sun, **<u>Lixin Liu</u>**, Hewu Li, Jianping Wu, Zeqi Lai, Qian Wu, Jun Liu. 
   
 - ``NSDI 2023`` [StarryNet: Empowering Researchers to Evaluate Futuristic Integrated Space and Terrestrial Networks](https://www.usenix.org/conference/nsdi23/presentation/lai-zeqi), Zeqi Lai, Hewu Li, Yangtao Deng, Qian Wu, Jun Liu, Yuanjie Li, Jihao Li, **<u>Lixin Liu</u>**, Weisen Liu, Jianping Wu.
 
