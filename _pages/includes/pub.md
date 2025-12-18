@@ -2,6 +2,10 @@
 # 📝 Publications 
 
 ## 🛰️ Satellite Network 
+- ``NINeS 2026`` [CrowdLink: Unlocking Idle LEO Network Capacity with User Terminals](https://nines-conference.org/), **<u>Lixin Liu</u>**, Jinyao Zhang, Bijia You, Yimei Chen, Jiabo Yang, Yuanjie Li, Hewu Li, Qian Wu, Zeqi Lai, Jun Liu. 
+- 
+- ``INFOCOM 2026`` [The Invisible Hand: Regaining Control of Service Quality from Outsourced Satellite Networks](https://infocom2026.ieee-infocom.org/), **<u>Lixin Liu</u>**, Jingyi Lan, Bijia You, Yuanjie Li, Hewu Li, Qian Wu, Zeqi Lai. 
+
 - ``NSDI 2024`` [Democratizing Direct-to-Cell Low Earth Orbit Satellite Networks](https://www.usenix.org/conference/nsdi24/presentation/liu-lixin), **<u>Lixin Liu</u>**, Yuanjie Li, Hewu Li, Jiabo Yang, Wei Liu, Jingyi Lan, Yufeng Wang, Jiarui Li, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai. [[PDF](/docs/nsdi24-liu.pdf)] [[Slides](/docs/nsdi24-liu-slides.pdf)]
 **<font color=red>Outstanding Paper Award</font>**
 

@@ -1,4 +1,5 @@
 # 🎖 Honors and Awards
+- *2025.10* Jiang Nanxiang Scholarship
 - *2024.10* National Scholarship
 - *2024.04* **Outstanding Paper Award**, NSDI 2024
 - *2024.04* Travel grant, NSDI 2024
