@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Lixin Liu (刘李鑫)"
-description              : "Ph.D. candidate in Tsinghua University. Focusing on satellite network."
+description              : "Assistant Researcher at Zhongguancun Laboratory."
 repository               : "llxsd/llxsd.github.io/"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  : code-ZxFK3f4pfb
 author:
   name             : "Lixin Liu (刘李鑫)"
   avatar           : "images/lixin.JPG"
-  bio              : "Tsinghua University"
+  bio              : "Zhongguancun Laboratory"
   location         : "Beijing"
   employer         :
   pubmed           : 
