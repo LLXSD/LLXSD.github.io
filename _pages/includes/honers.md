@@ -1,4 +1,5 @@
 # 🎖 Honors and Awards
+- *2026.06* Outstanding graduate of the Institute for Network Sciences and Cyberspace of Tsinghua University
 - *2025.10* Jiang Nanxiang Scholarship
 - *2024.10* National Scholarship
 - *2024.04* **Outstanding Paper Award**, NSDI 2024
