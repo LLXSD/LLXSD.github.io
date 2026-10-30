@@ -2,6 +2,8 @@
 # 📝 Publications 
 
 ## 🛰️ Satellite Network 
+- ``HotNets 2026`` [Rethinking LEO Networks for Users in Orbit](https://conferences.sigcomm.org/hotnets/2026/program.html), Jiabo Yang*, **<u>Lixin Liu*</u>**, Yuanjie Li, Hewu Li, Qian Wu, Zeqi Lai, Jun Liu.
+
 - ``NINeS 2026`` [CrowdLink: Unlocking Idle LEO Network Capacity with User Terminals](https://nines-conference.org/), **<u>Lixin Liu</u>**, Jinyao Zhang, Bijia You, Yimei Chen, Jiabo Yang, Yuanjie Li, Hewu Li, Qian Wu, Zeqi Lai, Jun Liu. 
   
 - ``INFOCOM 2026`` [The Invisible Hand: Regaining Control of Service Quality from Outsourced Satellite Networks](https://infocom2026.ieee-infocom.org/), **<u>Lixin Liu</u>**, Jingyi Lan, Bijia You, Yuanjie Li, Hewu Li, Qian Wu, Zeqi Lai. 
@@ -11,7 +13,7 @@
 
 - ``MobiCom 2024`` [Stable hierarchical routing for operational satellite networks](https://www.sigmobile.org/mobicom/2024/), Yuanjie Li, **<u>Lixin Liu</u>**, Hewu Li, Wei Liu, Yimei Chen, Wei Zhao, Jianping Wu, Qian Wu, Jun Liu, Zeqi Lai.[[Slides](/docs/mobicom24-liu-slides.pdf)]
 
-- ``HotNets 2024`` [Unraveling Physical Space Limits for LEO Network Scalability](https://dl.acm.org/doi/abs/10.1145/3696348.3696885), Yimei Chen, **<u>Lixin Liu</u>**, Yuanjie Li, Hewu Li, Qian Wu, Jun Liu, Zeqi Lai.
+- ``HotNets 2024`` [Unraveling Physical Space Limits for LEO Network Scalability](https://dl.acm.org/doi/abs/10.1145/3696348.3696885), Yimei Chen*, **<u>Lixin Liu*</u>**, Yuanjie Li, Hewu Li, Qian Wu, Jun Liu, Zeqi Lai.
 
 - ``IEEE Internet Computing`` [Enabling 6G and Beyond Network Functions from Space: Challenges and Opportunities](https://ieeexplore.ieee.org/abstract/document/10417070), **<u>Lixin Liu</u>**, Wei Liu, Yuanjie Li, Hewu Li.
 
